@@ -65,7 +65,7 @@ void MergeSortAlgorithm::salvarTempo(int n, double timeTaken) {
         cerr << "Erro ao abrir o arquivo de saída.\n";
         return;
     }
-    file << "\nC++," << n << "," << fixed << setprecision(6) << timeTaken;
+    file << "\nC++," << n << "," << fixed << setprecision(10) << timeTaken << "," << arq;
     file.close();
 }
 

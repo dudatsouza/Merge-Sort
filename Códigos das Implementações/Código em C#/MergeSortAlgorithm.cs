@@ -96,8 +96,8 @@ public class MergeSortAlgorithm
         {
             using (StreamWriter sw = new StreamWriter(arq2, true))
             {
-                string formattedTimeTaken = timeTaken.ToString("F6", CultureInfo.InvariantCulture);
-                sw.Write($"\nC#,{n},{formattedTimeTaken.Replace(',', '.')}");
+                string formattedTimeTaken = timeTaken.ToString("F10", CultureInfo.InvariantCulture);
+                sw.Write($"\nC#,{n},{formattedTimeTaken.Replace(',', '.')},{arq}");
             }
         }
         catch (Exception e)

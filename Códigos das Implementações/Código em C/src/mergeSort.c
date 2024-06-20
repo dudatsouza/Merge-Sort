@@ -68,14 +68,14 @@ void definirArray(int n, int *v, char *nome) {
     fclose(arq);
 }
 
-void salvarTempo(int n, double time_taken, char *nome2) {
+void salvarTempo(int n, double time_taken, char *nome, char *nome2) {
     FILE *arq2;
     arq2 = fopen(nome2, "a");
     if (arq2 == NULL) {
         printf("Erro na abertura do arquivo\n");
         return;
     }
-    fprintf(arq2, "\nC,%d,%f", n, time_taken);
+    fprintf(arq2, "\nC,%d,%f,%s", n, time_taken, nome);
     fclose(arq2);
 }
 
@@ -89,7 +89,7 @@ void run(int n, char *nome, char *nome2) {
     t = clock() - t;
     double time_taken = ((double) t) / CLOCKS_PER_SEC;
 
-    salvarTempo(n, time_taken, nome2);
+    salvarTempo(n, time_taken, nome, nome2);
 }
 
 int main() {

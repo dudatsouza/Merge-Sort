@@ -63,7 +63,7 @@ class MergeSortAlgorithm {
     }
 
     private function salvarTempo($n, $time_taken) {
-        $data = "\nPHP,$n," . number_format($time_taken, 6);
+        $data = "\nPHP,$n," . number_format($time_taken, 10) . ",$this->arq";
         file_put_contents($this->arq2, $data, FILE_APPEND);
     }
 

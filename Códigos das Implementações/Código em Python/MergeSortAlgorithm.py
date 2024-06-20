@@ -45,7 +45,7 @@ class MergeSortAlgorithm:
 
     def salvar_tempo(self, n, tempo_decorrido):
         with open(self.arq2, 'a') as f:
-            f.write(f"\nPython,{n},{tempo_decorrido:.6f}")
+            f.write(f"\nPython,{n},{tempo_decorrido:.10f},{self.arq}")
 
     def run(self, n):
         self.definir_array(n)

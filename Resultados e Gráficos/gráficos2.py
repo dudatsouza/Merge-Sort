@@ -5,33 +5,33 @@ import plotly.io as pio
 # Carregar os dados do arquivo CSV
 df = pd.read_csv('../Saidas/saida.csv')
 
-# Obter os diferentes filePath
-file_paths = df['filePath'].unique()
+# Obter as diferentes linguagens
+linguagens = df['linguagem'].unique()
 
 # Criar um gráfico para cada filePath
-for file_path in file_paths:
-    # Filtrar os dados para o filePath atual
-    df_filtered = df[df['filePath'] == file_path]
+for linguagem in linguagens:
+    # Filtrar os dados para a linguagem atual
+    df_filtered = df[df['linguagem'] == linguagem]
 
     # Criar o gráfico de linhas
     fig = go.Figure()
 
-    # Adicionar as linhas ao gráfico para cada linguagem
-    linguagens = df_filtered['linguagem'].unique()
-    for linguagem in linguagens:
-        df_linguagem = df_filtered[df_filtered['linguagem'] == linguagem]
+    # Adicionar as linhas ao gráfico para cada arquivo de entrada
+    file_paths = df_filtered['filePath'].unique()
+    for file_path in file_paths:
+        df_file_path = df_filtered[df_filtered['filePath'] == file_path]
         fig.add_trace(go.Scatter(
-            x=df_linguagem['tamanhoArray'], 
-            y=df_linguagem['tempoExecucao'], 
+            x=df_file_path['tamanhoArray'], 
+            y=df_file_path['tempoExecucao'], 
             mode='lines+markers', 
-            name=linguagem,
+            name=file_path.split('/')[-1],  # Usar o nome do arquivo como legenda
             marker=dict(size=10)  # Define o tamanho das bolinhas
         ))
 
     # Adicionar título e nomes dos eixos
     fig.update_layout(
         title={
-            'text': f'DESEMPENHO DAS LINGUAGENS - {file_path.split("/")[-1]}',
+            'text': f'DESEMPENHO DAS LINGUAGENS - {linguagem}',
             'x': 0.5,
             'xanchor': 'center',
             'yanchor': 'top',
@@ -85,6 +85,6 @@ for file_path in file_paths:
     fig.show()
 
     # Salvar o gráfico como PNG
-    file_name = f"../Resultados e Gráficos/datasets/Por Entradas/desempenho_{file_path.split('/')[-1]}.png"
+    file_name = f"../Resultados e Gráficos/datasets/Por Linguagem/desempenho_{linguagem}.png"
     pio.write_image(fig, file_name, width=1280, height=720)
     print(f"Gráfico salvo como {file_name}")

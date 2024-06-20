@@ -64,7 +64,7 @@ public class MergeSortAlgorithm {
 
     private void salvarTempo(int n, double timeTaken) {
     try (PrintWriter writer = new PrintWriter(new FileWriter(arq2, true))) {
-        writer.print("\nJava," + n + "," + String.format(Locale.US, "%.6f", timeTaken));
+        writer.print("\nJava," + n + "," + String.format(Locale.US, "%.10f", timeTaken) + "," + arq);
     } catch (IOException e) {
         e.printStackTrace();
     }

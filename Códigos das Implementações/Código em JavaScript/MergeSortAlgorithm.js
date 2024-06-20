@@ -60,7 +60,7 @@ class MergeSortAlgorithm {
     }
 
     salvarTempo(n, timeTaken) {
-        const data = `\nJavaScript,${n},${timeTaken}`;
+        const data = `\nJavaScript,${n},${timeTaken},${this.arq}`;
         fs.writeFileSync(this.arq2, data, { flag: 'a' });
     }
 
