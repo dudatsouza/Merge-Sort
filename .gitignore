@@ -1,0 +1,52 @@
+# General
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+env/
+venv/
+
+# C
+src/c/build/
+src/c/*.o
+src/c/*.out
+src/c/*.exe
+
+# C#
+src/csharp/bin/
+src/csharp/obj/
+*.csproj.user
+
+# C++
+src/cpp/build/
+src/cpp/*.o
+src/cpp/*.out
+src/cpp/*.exe
+
+# Java
+*.class
+
+# JavaScript
+node_modules/
+npm-debug.log
+
+# PHP
+vendor/
+
+# # Exclude datasets outputs
+# datasets/outputs/*.csv
+# datasets/graphs/by_input/*.png
+# datasets/graphs/by_language/*.png
+
+# Others
+.idea/
+.vscode/
