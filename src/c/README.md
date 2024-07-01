@@ -54,10 +54,8 @@ Para compilar e executar o programa através do script executável, siga os pass
     ```bash
     python3 main.py
     ```
-    **- OBSERVAÇÃO:** Caso não tenha o python instalado, instale-o através do comando:
-    ```bash
-    sudo apt install python3
-    ```
+
+
 3. O programa será executado e o gráfico de desempenho será gerado.
 
 ## ⛏ Makefile

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Sort App</title>
+    <style>
+        #frameDiv {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-end;
+            height: 100px;
+            width: 100%;
+            position: relative;
+        }
+
+        .diceDiv {
+            width: 20px;
+            background-color: rgb(105, 99, 99);
+            margin: 0 1px;
+            transition: transform 1s ease-out, top 0.5s ease-out;
+            position: relative;
+        }
+
+        .active {
+            background-color: #79a9c3; /* Cor para barras sendo analisadas */
+            top: 5px; /* Posição ligeiramente mais baixa para barras ativas */
+        }
+
+        .changing {
+            background-color: #935965; /* Cor para barras que estão sendo trocadas */
+        }
+
+        .v-move,
+        .v-enter-active,
+        .v-leave-active {
+            transition: top 1s ease-out;
+        }
+
+        .v-enter,
+        .v-leave-to {
+            top: 0;
+        }
+
+        .v-enter-to,
+        .v-leave {
+            top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="vueApp">
+            <p>Speed: <input type="range" min="50" max="500" v-model="inpVal"></p>
+            <button @click="action" :disabled="btnIsDisabled">{{ buttonText }}</button>
+            <br>
+            <div id="frameDiv">
+                <div class="diceDiv" v-for="(die, index) in dice" :key="index"
+                    :style="{ transform: `translateX(${die.left}px)`, height: die.dieNmbr + 'px', top: die.isActive ? '5px' : '0' }"
+                    :class="{ active: die.isActive, changing: die.isChanging }"></div>
+            </div>
+            <p>{{ msgDone }}</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.2.20/dist/vue.global.prod.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    btnIsDisabled: false,
+                    msgDone: '',
+                    inpVal: 350,
+                    dice: [],
+                    keyNumber: 0,
+                    buttonText: 'Merge Sort'
+                }
+            },
+            computed: {
+                delay() {
+                    return 550 - this.inpVal;
+                }
+            },
+            watch: {
+                delay: {
+                    immediate: true,
+                    handler() {
+                        this.updateMoveDuration();
+                    },
+                }
+            },
+            methods: {
+                action() {
+                    if (this.buttonText === "Merge Sort") {
+                        this.mergeSort(0, this.dice.length);
+                    } else {
+                        this.addDie50();
+                    }
+                },
+                updateMoveDuration() {
+                    const stylesheet = document.styleSheets[0];
+                    const rules = Array.from(stylesheet.cssRules);
+                    const moveRule = rules.find(rule => rule.selectorText === '.v-move');
+                    if (moveRule) {
+                        moveRule.style.transitionDuration = `${this.delay}ms`;
+                    }
+                },
+                async mergeSort(start, end) {
+                    if (end - start <= 1) {
+                        return;
+                    }
+                    for (let i = start; i < end; i++) {
+                        this.dice[i].top += 10;
+                    }
+                    this.btnIsDisabled = true;
+
+                    const mid = Math.floor((start + end) / 2);
+                    await new Promise(resolve => setTimeout(resolve, this.delay));
+                    await this.mergeSort(start, mid);
+                    await this.mergeSort(mid, end);
+
+                    await this.merge(start, mid, end);
+
+                    if (start === 0 && end === this.dice.length) {
+                        for (let i = 0; i < this.dice.length; i++) {
+                            this.dice[i].isActive = false;
+                            this.dice[i].isFinished = true;
+                        }
+                        this.btnIsDisabled = false;
+                        this.msgDone = 'Done!';
+                        this.buttonText = 'New Values';
+                    }
+                },
+                async merge(start, mid, end) {
+                    let i = start;
+                    let j = mid;
+                    let pushIndex = start;
+                    for (let k = start; k < end; k++) {
+                        this.dice[k].isActive = true;
+                    }
+                    await new Promise(resolve => setTimeout(resolve, this.delay));
+
+                    while (i < mid && j < end) {
+                        await new Promise(resolve => setTimeout(resolve, this.delay));
+                        let diceEl;
+                        if (this.dice[i].dieNmbr < this.dice[j].dieNmbr) {
+                            diceEl = this.dice.splice(i, 1)[0];
+                        } else {
+                            diceEl = this.dice.splice(j, 1)[0];
+                            mid++;
+                            j++;
+                        }
+                        diceEl.isChanging = true;
+                        this.dice.splice(pushIndex, 0, diceEl);
+                        await new Promise(resolve => setTimeout(resolve, this.delay));
+                        diceEl.isChanging = false;
+                        diceEl.isActive = false;
+                        i++;
+                        pushIndex++;
+                    }
+
+                    while (j < end) {
+                        let diceEl = this.dice.splice(j, 1)[0];
+                        diceEl.isChanging = true;
+                        this.dice.splice(pushIndex, 0, diceEl);
+                        await new Promise(resolve => setTimeout(resolve, this.delay));
+                        diceEl.isChanging = false;
+                        diceEl.isActive = false;
+                        pushIndex++;
+                        j++;
+                        i++;
+                        mid++;
+                    }
+
+                    while (i < mid) {
+                        let diceEl = this.dice.splice(i, 1)[0];
+                        diceEl.isChanging = true;
+                        this.dice.splice(pushIndex, 0, diceEl);
+                        await new Promise(resolve => setTimeout(resolve, this.delay));
+                        diceEl.isChanging = false;
+                        diceEl.isActive = false;
+                        pushIndex++;
+                        i++;
+                    }
+                    for (let t = start; t < end; t++) {
+                        this.dice[t].top -= 10;
+                        this.dice[t].isActive = false;
+                    }
+                },
+                addDie() {
+                    const newDie = {
+                        dieNmbr: Math.ceil(Math.random() * 95) + 5,
+                        left: 0,
+                        isActive: false,
+                        isChanging: false,
+                        keyNmbr: this.keyNumber,
+                        isFinished: false
+                    };
+                    this.dice.push(newDie);
+                    this.keyNumber++;
+                },
+                addDie50() {
+                    this.dice = [];
+                    for (let i = 0; i < 18; i++) {
+                        this.addDie();
+                    }
+                    this.buttonText = "Merge Sort";
+                    this.msgDone = '';
+                }
+            },
+            mounted() {
+                this.addDie50();
+                this.updateMoveDuration();
+            }
+        })
+        app.mount('#vueApp')
+    </script>
+</body>
+
+</html>
