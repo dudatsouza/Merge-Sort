@@ -1,5 +1,4 @@
-    # Merge Sort
-
+# Merge Sort
 <div style="display: inline_block">
   
   <img align="center" alt="CMake" src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
@@ -39,4 +38,8 @@ Esse programa possui um arquivo Makefile que realiza todo o procedimento de comp
 | -----------------------| ------------------------------------------------------------------------------------------------------|
 |  Maíra                 |                                  			       |
 |  Maria Eduarda         |                                      			    |
+<<<<<<< HEAD
 |  Sergio                |                                 			          |
+=======
+|  Sergio                |                                 			          |
+>>>>>>> 7f311fd306592398520e132f40d3f7591b861b78
