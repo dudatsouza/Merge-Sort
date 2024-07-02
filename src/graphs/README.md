@@ -16,9 +16,12 @@ Esta pasta contém os scripts necessários para gerar gráficos de desempenho do
 - `src/plot_utils.py`: Funções utilitárias para plotagem.
 
 ## 📚 Como Usar
+Antes de executar é necessário clonar o repositório. Para isso, siga os passos abaixo:
+```bash
+git clone https://github.com/dudatsouza/Merge-Sort.git
+```
 
-### Gerar Gráficos
-
+Existem duas maneiras para gerar os gráficos de desempenho dos algoritmos de ordenação:
 
 ### 1. Através do script de gráficos
 1. Abra seu terminal e navegue até o diretório `src/graphs`:
@@ -34,13 +37,15 @@ Esta pasta contém os scripts necessários para gerar gráficos de desempenho do
     ```bash
     python3 plot_utils.py
     ```
-    **- OBSERVAÇÃO:** Caso não tenha o Python ou a biblioteca Matplotlib instalada, instale-os através dos comandos:
-    ```bash
-    sudo apt install python3
-    pip install matplotlib
-    ```
+> [!CAUTION]
+> Caso não tenha o Python ou a biblioteca Matplotlib instalada, instale-os através dos comandos:
+> ```bash
+> sudo apt install python3
+> pip install matplotlib
+> ```
 
 3. Os gráficos de desempenho serão gerados e salvos no diretório `datasets/graphs/`.
+<p align="right"><a href="#-geração-de-gráficos">⬆️ Voltar para ao Início</a></p>
 
 ### 2. Através do script gerenciador
 
@@ -54,24 +59,69 @@ Para compilar e executar o programa através do script executável, siga os pass
     ```bash
     python3 main.py
     ```
-    **- OBSERVAÇÃO:** Caso não tenha o python instalado, instale-o através do comando:
-    ```bash
-    sudo apt install python3
-    ```
+> [!CAUTION]
+> Caso não tenha o python instalado, instale-o através do comando:
+> ```bash
+> sudo apt install python3
+> ```
+
 3. O programa será executado e o gráfico de desempenho será gerado.
+<p align="right"><a href="#-geração-de-gráficos">⬆️ Voltar para ao Início</a></p>
 
 ## 📊 Gráficos
 
 Os gráficos de desempenho dos algoritmos de ordenação são gerados e será abera uma janela no seu navegador com os gráficos. Além disso, os gráficos são salvos no diretório `datasets/graphs/`. Serão gerados dois tipos de gráficos:
 1. **Por Entrada:** Gráfico de desempenho dos algoritmos para cada entrada. Estarão na pasta `datasets/graphs/by_input/`.
 2. **Por Algoritmo:** Gráfico de desempenho dos algoritmos para cada algoritmo. Estarão na pasta `datasets/graphs/by_algorithm/`.
+<p align="right"><a href="#-geração-de-gráficos">⬆️ Voltar para ao Início</a></p>
 
-## 📧 Contato
+## 🔧 Ambiente de Compilação
+A seguir estão os detalhes do ambiente de compilação onde o programa foi executado:
 
+| Componente      | Detalhes                          |
+|-----------------|-----------------------------------|
+| Sistema Operacional | Ununtu 22.04.4 LTS  - 64 bits|
+| Modelo do hardware| Dell Inspiron 13 5330|
+| Processador     | Intel Core i7-1360P Processor (18MB Cache, up to 5.00 GHz)|
+| Memória RAM     | 16GB 4800MHz LPDDR5 Memory Onboard|
+| Armazenamento   | 512GB M.2 PCIe NVMe Solid State Drive|
+| Placa de vídeo  | Intel(R) Iris(R) Xe Graphics |
+| IDE             | Visual Studio Code 1.63.2|
+
+> [!IMPORTANT]
+> Os detalhes acima são baseados no ambiente de compilação utilizado durante o desenvolvimento do programa e podem variar em diferentes sistemas.
+<p align="right"><a href="#-geração-de-gráficos">⬆️ Voltar para ao Início</a></p>
+
+## 📧 Contato dos Colaboradores
 Para mais informações ou sugestões, sinta-se à vontade para entrar em contato:
 
-- ✉️ **E-mail**: [![Gmail Badge](https://img.shields.io/badge/-dudateixeirasouza@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:dudateixeirasouza@gmail.com)](mailto:dudateixeirasouza@gmail.com)
-- 💼 **LinkedIn**: [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-0e76a8?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/maria-eduarda-teixeira-souza-2a2b3a254/)
-- 📸 **Instagram**: [![Instagram Badge](https://img.shields.io/badge/-Instagram-e4405f?style=flat-square&logo=Instagram&logoColor=white)](https://www.instagram.com/dudat_18/)
+| Participante           |  Contato  |                     
+| -----------------------| ----------|
+|  Maíra Lacerda | [![Gmail][Gmail Badge]][Gmail Colab 1] [![Linkedin][Linkedin Badge]][Linkedin Colab 1] [![Instagram][Instagram Badge]][Instagram Colab 1] [![GitHub][GitHub Badge]][GitHub Colab 1]|
+|  Maria Eduarda Teixeira | [![Gmail][Gmail Badge]][Gmail Colab 2] [![Linkedin][Linkedin Badge]][Linkedin Colab 2] [![Instagram][Instagram Badge]][Instagram Colab 2] [![GitHub][GitHub Badge]][GitHub Colab 2]|
+|  Sergio Ramos | [![Gmail][Gmail Badge]][Gmail Colab 3] [![Linkedin][Linkedin Badge]][Linkedin Colab 3] [![Instagram][Instagram Badge]][Instagram Colab 3] [![GitHub][GitHub Badge]][GitHub Colab 3]          |  
 
-Ficarei feliz em receber feedbacks, contribuições ou responder a quaisquer dúvidas que você possa ter sobre o programa.
+Ficaremos felizes em receber feedbacks, contribuições ou responder a quaisquer dúvidas que você possa ter sobre o programa.
+<p align="right"><a href="#-geração-de-gráficos">⬆️ Voltar para ao Início</a></p>
+
+
+[Gmail Badge]: https://img.shields.io/badge/-Gmail-c14438?style=flat-square&logo=Gmail&logoColor=white
+[Linkedin Badge]: https://img.shields.io/badge/-LinkedIn-0e76a8?style=flat-square&logo=Linkedin&logoColor=white
+[Instagram Badge]: https://img.shields.io/badge/-Instagram-e4405f?style=flat-square&logo=Instagram&logoColor=white
+[GitHub Badge]: https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=GitHub&logoColor=white
+
+[Gmail Colab 1]: mailto:mairaallacerda@gmail.com
+[Gmail Colab 2]: mailto:dudateixeirasouza@gmail.com
+[Gmail Colab 3]: mailto:sergiohenriquequedasramos@gmail.com
+
+[Linkedin Colab 1]: https://www.linkedin.com/in/ma%C3%ADra-almeida-lacerda
+[Linkedin Colab 2]: https://www.linkedin.com/in/maria-eduarda-teixeira-souza-2a2b3a254/
+[Linkedin Colab 3]: https://www.linkedin.com/in/sergio-ramos-21057230a
+
+[Instagram Colab 1]: https://www.instagram.com/mairaallacerda/
+[Instagram Colab 2]: https://www.instagram.com/dudat_18/
+[Instagram Colab 3]: https://www.instagram.com/eu__sergio/
+
+[GitHub Colab 1]: https://github.com/mairaallacerda
+[GitHub Colab 2]: https://github.com/dudatsouza
+[GitHub Colab 3]: https://github.com/serginnn

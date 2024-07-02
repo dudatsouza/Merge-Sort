@@ -1,21 +1,14 @@
-# 💻 Implementação em C
+# 💻 Visualização do Merge Sort
 
 <div align="center">
     <img align="center" height="20px" width="80px" alt="Ubuntu" src="https://img.shields.io/badge/Ubuntu-E95420?logo=ubuntu&logoColor=white"/>
     <img align="center" height="20px" width="80px" src="https://img.shields.io/badge/VS%20Code-blue?logo=visual%20studio%20code"/>
-    <img align="center" height="20px" width="80px" src="https://img.shields.io/badge/MakeFile-green?logo=make">
-    <img align="center" height="20px" width="40px" src="https://img.shields.io/badge/c-%2300599C.svg?logo=c&logoColor=white"/>
 </div>
 
 ## 
-Aqui está a implementação do algoritmo Merge Sort em C. Para entender melhor sobre este projeto, leia o [README.md](../../README.md) principal.
 
 ## 🗂 Arquivos
 
-- `src/merge_sort.c`: Implementação do algoritmo Merge Sort em C.
-- `src/merge_sort.h`: Declaração das funções do algoritmo Merge Sort.
-- `src/main.c`: Programa principal que executa o algoritmo Merge Sort.
-- `makefile`: Script de construção para compilar o código.
 
 ## 📚 Como Usar
 Antes de executar é necessário clonar o repositório. Para isso, siga os passos abaixo:
@@ -23,62 +16,10 @@ Antes de executar é necessário clonar o repositório. Para isso, siga os passo
 git clone https://github.com/dudatsouza/Merge-Sort.git
 ```
 
-Existe duas maneiras para executar este programa:
-1. Através do terminal, utilizando o Makefile.
-2. Através do script executável `../manager/main.py`, neste é executado o programa e gerado o gráfico de desempenho.
 
-### 1. Através do terminal
-Para compilar e executar o programa através do terminal, siga os passos abaixo:
+<p align="right"><a href="#-visualização-do-merge-sort">⬆️ Voltar para ao Início</a></p>
 
-1. Abra seu terminal e navegue até o diretório `src/c`:
-    ```bash
-    cd src/c
-    ```
-2. Execute o comando `make clean` para remover os arquivos compilados:
-    ```bash
-    make clean
-    ```
-3. Execute o comando `make` para compilar o programa:
-    ```bash
-    make
-    ```
-4. Execute o comando `make run` para executar o programa:
-    ```bash
-    make run
-    ```
-5. O programa será executado e o resultado será exibido no terminal.
-<p align="right"><a href="#-implementação-em-c">⬆️ Voltar para ao Início</a></p>
 
-### 2. Através do script executável
-Para compilar e executar o programa através do script executável, siga os passos abaixo:
-
-1. Abra seu terminal e navegue até o diretório `src/manager`:
-    ```bash
-    cd src/manager
-    ```
-2. Execute o script em python:
-    ```bash
-    python3 main.py
-    ```
-> [!CAUTION]
-> Caso não tenha o python instalado, instale-o através do comando:
-> ```bash
-> sudo apt install python3
-> ```
-
-3. O programa será executado e o gráfico de desempenho será gerado.
-<p align="right"><a href="#-implementação-em-c">⬆️ Voltar para ao Início</a></p>
-
-## ⛏ Makefile
-
-O Makefile é um utilitário que automatiza o processo de compilação e execução de programas. Aqui estão os principais comandos do Makefile para este projeto:
-
-| Comando      | **Descrição**                           |
-|--------------|-----------------------------------------|
-| `make`       | Compila o programa.                     |
-| `make run`   | Executa o programa com o arquivo de entrada fornecido. |
-| `make clean` | Remove os arquivos compilados.          |
-<p align="right"><a href="#-implementação-em-c">⬆️ Voltar para ao Início</a></p>
 
 ## 🔧 Ambiente de Compilação
 A seguir estão os detalhes do ambiente de compilação onde o programa foi executado:
@@ -95,7 +36,7 @@ A seguir estão os detalhes do ambiente de compilação onde o programa foi exec
 
 > [!IMPORTANT]
 > Os detalhes acima são baseados no ambiente de compilação utilizado durante o desenvolvimento do programa e podem variar em diferentes sistemas.
-<p align="right"><a href="#-implementação-em-c">⬆️ Voltar para ao Início</a></p>
+<p align="right"><a href="#-visualização-do-merge-sort">⬆️ Voltar para ao Início</a></p>
 
 ## 📧 Contato dos Colaboradores
 Para mais informações ou sugestões, sinta-se à vontade para entrar em contato:
@@ -107,8 +48,7 @@ Para mais informações ou sugestões, sinta-se à vontade para entrar em contat
 |  Sergio Ramos | [![Gmail][Gmail Badge]][Gmail Colab 3] [![Linkedin][Linkedin Badge]][Linkedin Colab 3] [![Instagram][Instagram Badge]][Instagram Colab 3] [![GitHub][GitHub Badge]][GitHub Colab 3]          |  
 
 Ficaremos felizes em receber feedbacks, contribuições ou responder a quaisquer dúvidas que você possa ter sobre o programa.
-<p align="right"><a href="#-implementação-em-c">⬆️ Voltar para ao Início</a></p>
-
+<p align="right"><a href="#-visualização-do-merge-sort">⬆️ Voltar para ao Início</a></p>
 
 [Gmail Badge]: https://img.shields.io/badge/-Gmail-c14438?style=flat-square&logo=Gmail&logoColor=white
 [Linkedin Badge]: https://img.shields.io/badge/-LinkedIn-0e76a8?style=flat-square&logo=Linkedin&logoColor=white

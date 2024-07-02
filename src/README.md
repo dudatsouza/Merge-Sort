@@ -95,37 +95,36 @@ Veja abaixo a estrutura de pastas e arquivos deste diretório:
     │
     └── README.md
     ```
+<p align="right"><a href="#-diretório-src">⬆️ Voltar para ao Início</a></p>
 
 ## 📚 Como Usar
 
-Cada subdiretório contém um README específico com instruções detalhadas sobre como compilar e executar o código na linguagem correspondente. Primeiramente clone o repósitório depois siga as seguintes intruções:
-
+Cada subdiretório contém um README específico com instruções detalhadas sobre como compilar e executar o código na linguagem correspondente. Siga as seguintes intruções:
+- **Clone o repositório:**
 ```bash
 git clone https://github.com/dudatsouza/Merge-Sort.git
 ```
 
-
-### ⛏ Compilação e Execução
-***
-Para compilar e executar as implementações, navegue até o subdiretório desejado e siga as instruções no README correspondente.
-
-### 📊 Gerenciamento de Execução e Geração de Gráficos
-***
-Para usar o gerenciador de execução e gerar gráficos de desempenho:
-1. Abra seu terminal e navegue até o diretório `src/manager`:
-    ```bash
-    cd src/manager
-    ```
-2. Execute o script em python:
-    ```bash
-    python3 main.py
-    ```
+- **Execute o programa:**
+    Para executar o programa, siga as instruções abaixo:
+    1. Abra seu terminal e navegue até o diretório `src/manager`:
+        ```bash
+        cd src/manager
+        ```
+    2. Execute o script em python:
+        ```bash
+        python3 main.py
+        ```
 > [!CAUTION]
 > Caso não tenha o python instalado, instale-o através do comando:
 > ```bash
 > sudo apt install python3
 > ```
-3. O programa será executado e o gráfico de desempenho será gerado.
+    3. O programa será executado e o gráfico de desempenho será gerado.
+
+> [!TIP]
+> Caso você não queira utilizar o script, siga as instruções contidas no README de cada subdiretório para compilar e executar o código manualmente.
+<p align="right"><a href="#-diretório-src">⬆️ Voltar para ao Início</a></p>
 
 ## 🔧 Ambiente de Compilação
 A seguir estão os detalhes do ambiente de compilação onde o programa foi executado:
@@ -154,6 +153,8 @@ Para mais informações ou sugestões, sinta-se à vontade para entrar em contat
 |  Sergio Ramos | [![Gmail][Gmail Badge]][Gmail Colab 3] [![Linkedin][Linkedin Badge]][Linkedin Colab 3] [![Instagram][Instagram Badge]][Instagram Colab 3] [![GitHub][GitHub Badge]][GitHub Colab 3]          |  
 
 Ficaremos felizes em receber feedbacks, contribuições ou responder a quaisquer dúvidas que você possa ter sobre o programa.
+<p align="right"><a href="#-diretório-src">⬆️ Voltar para ao Início</a></p>
+
 
 [Gmail Badge]: https://img.shields.io/badge/-Gmail-c14438?style=flat-square&logo=Gmail&logoColor=white
 [Linkedin Badge]: https://img.shields.io/badge/-LinkedIn-0e76a8?style=flat-square&logo=Linkedin&logoColor=white
