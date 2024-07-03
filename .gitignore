@@ -47,6 +47,9 @@ vendor/
 # datasets/graphs/by_input/*.png
 # datasets/graphs/by_language/*.png
 
+# HTML
+_config.yml
+
 # Others
 .idea/
 .vscode/

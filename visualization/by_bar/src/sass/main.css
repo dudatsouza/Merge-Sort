@@ -1,0 +1,42 @@
+#frameDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100px;
+    width: 100%;
+    position: relative;
+}
+
+.diceDiv {
+    width: 20px;
+    background-color: rgb(105, 99, 99);
+    margin: 0 1px;
+    transition: transform 1s ease-out, top 0.5s ease-out;
+    position: relative;
+}
+
+.active {
+    background-color: #79a9c3; /* Cor para barras sendo analisadas */
+    top: 5px; /* Posição ligeiramente mais baixa para barras ativas */
+}
+
+.changing {
+    background-color: #935965; /* Cor para barras que estão sendo trocadas */
+}
+
+.v-move,
+.v-enter-active,
+.v-leave-active {
+    transition: top 1s ease-out;
+}
+
+.v-enter,
+.v-leave-to {
+    top: 0;
+}
+
+.v-enter-to,
+.v-leave {
+    top: 10px;
+}
