@@ -36,34 +36,31 @@ cd /visualization/by_step
 
 ## 📽️ Demonstração
 A seguir, apresentamos a visualização passo a passo do algoritmo Merge Sort:
+1. O algoritmo inicia com a lista de números desordenada.
+2. O algoritmo divide a lista em duas partes iguais.
+3. O algoritmo divide uma parte em duas partes menores até conter apenas um elemento.
+4. O algoritmo pega os elementos, compara e os ordena.
+5. O algoritmo repete o processo para a outra parte.
+6. O algoritmo mescla as partes ordenadas.
 
-1. **Início do Algoritmo**: 
-    - O algoritmo inicia com a lista de números desordenada.
-    - O algoritmo divide a lista em duas partes iguais.
-    - As duas partes são divididas novamente até que cada parte contenha apenas um elemento.
+<figure align="center">
+  <img src="./img/step1.gif" alt="Gráfico Exemplo" width="400" >
+  <figcaption>Fonte: Autor</figcaption>
+</figure>
 
-    ![Início do Algoritmo](./img/step1.gif)
-
-2. **Merge das Partes**:
-    - O algoritmo mescla as partes ordenando-as.
-    - As partes são mescladas em ordem crescente.
-    - O algoritmo continua mesclando as partes até que a lista esteja completamente ordenada.
-
-    ![Merge das Partes](./img/step2.gif)
-
-3. **Fim do Algoritmo**:
-    - O algoritmo termina com a lista de números ordenada.
-    - A lista é exibida na tela.
-
-    ![Fim do Algoritmo](./img/step3.png)
+<p align="right"><a href="#-visualização-passo-a-passo">⬆️ Voltar para ao Início</a></p>
 
 4. **Configuração Personalizada**:
     - O usuário pode personalizar a lista de números
     - O usuário pode definir o tempo em milissegundos para a animação do algoritmo.
 
-    ![Configuração Personalizada](./img/step4.png)
+<figure align="center">
+  <img src="./img/step1.gif" alt="Gráfico Exemplo" width="400" >
+  <figcaption>Fonte: Autor</figcaption>
+</figure>
 
 <p align="right"><a href="#-visualização-passo-a-passo">⬆️ Voltar para ao Início</a></p>
+
 ## 🔧 Ambiente de Compilação
 A seguir estão os detalhes do ambiente de compilação onde o programa foi executado:
 
