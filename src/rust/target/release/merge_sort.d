@@ -1,0 +1,1 @@
+/home/duda/Documentos/AEDS-LAEDS/Trabalho\ 1\ -\ AEDSI/Merge\ Sort/src/rust/target/release/merge_sort: /home/duda/Documentos/AEDS-LAEDS/Trabalho\ 1\ -\ AEDSI/Merge\ Sort/src/rust/src/main.rs /home/duda/Documentos/AEDS-LAEDS/Trabalho\ 1\ -\ AEDSI/Merge\ Sort/src/rust/src/merge_sort.rs

@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 import plotly.io as pio
 
 # Carregar os dados do arquivo CSV
-df = pd.read_csv('../../datasets/Saidas/saida.csv')
+df = pd.read_csv('../../../datasets/outputs/output.csv')
 
 # Obter os diferentes filePath
 file_paths = df['filePath'].unique()
@@ -85,6 +85,6 @@ for file_path in file_paths:
     fig.show()
 
     # Salvar o gráfico como PNG
-    file_name = f"../../datasets/Gráficos/Por Entradas/desempenho_{file_path.split('/')[-1]}.png"
+    file_name = f"../../../datasets/graphs/by_input/performance_{file_path.split('/')[-1]}.png"
     pio.write_image(fig, file_name, width=1280, height=720)
     print(f"Gráfico salvo como {file_name}")

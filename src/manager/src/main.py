@@ -27,9 +27,7 @@ def gerarGraficos():
     print("-----------------------------")
 
 def abrir_novo_terminal(lock_file_path):
-    # Caminho completo do script atual
     caminho_script = "main.py"
-    # Comando para abrir um novo terminal e executar este script com o argumento '--no-terminal'
     subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', f'python3 {caminho_script} --no-terminal {lock_file_path}'])
 
 def apresentacao():
@@ -49,7 +47,7 @@ def run():
 
     lock_file_path = "/tmp/executador.lock"
     open(lock_file_path, 'w').close()
-    subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', f'python3 executador.py'])
+    subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', f'python3 executor.py'])
     while os.path.exists(lock_file_path):
         time.sleep(1)
 
@@ -68,11 +66,11 @@ def finalizando():
 def main():
     apresentacao()
 
-    removerAquivosDiretorioEntrada("../../datasets/Entradas/")
-    limparArquivoSaida("../../datasets/Saidas/saida.csv")
-    
+    removerAquivosDiretorioEntrada("../../../datasets/inputs")
+    limparArquivoSaida("../../../datasets/outputs/output.csv")
+
     print("EXECUTANDO...\n")
-    subprocess.run(["python3", "entradas.py"])
+    subprocess.run(["python3", "inputs.py"])
 
     run()
 

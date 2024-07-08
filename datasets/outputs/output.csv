@@ -6,11 +6,6 @@ Java,10,0.0002966200,../../../datasets/inputs/asceding.txt
 JavaScript,10,0.000322749,../../../datasets/inputs/asceding.txt
 PHP,10,0.0000658035,../../../datasets/inputs/asceding.txt
 Python,10,0.0000722408,../../../datasets/inputs/asceding.txt
-C,100,0.000022,../../datasets/inputs/asceding.txt
-C++,100,0.0000477380,../../datasets/inputs/asceding.txt
-C#,100,0.0640027000,../../datasets/inputs/asceding.txt
-C,10,0.000005,../../datasets/inputs/asceding.txt
-C++,10,0.0000073400,../../datasets/inputs/asceding.txt
 C,10,0.000005,../../datasets/inputs/asceding.txt
 C++,10,0.0000070160,../../datasets/inputs/asceding.txt
 C#,10,0.0631100000,../../datasets/inputs/asceding.txt
@@ -41,6 +36,3 @@ C#,10,0.0656942000,../../datasets/inputs/asceding.txt
 Java,10,0.0001565510,../../../datasets/inputs/asceding.txt
 PHP,10,0.0000360012,../../../datasets/inputs/asceding.txt
 Python,10,0.0000600815,../../../datasets/inputs/asceding.txt
-C,100,0.000027,../../datasets/inputs/asceding.txt
-C++,100,0.0000485530,../../datasets/inputs/asceding.txt
-Python,10,0.0000739098,../../../datasets/inputs/random.txt
