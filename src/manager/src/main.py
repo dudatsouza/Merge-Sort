@@ -9,10 +9,6 @@ def removerAquivosDiretorioEntrada(caminho):
         if os.path.isfile(item_path):
             os.remove(item_path)
 
-def limparArquivoSaida(caminho):
-    with open(caminho, "w") as file:
-        file.write("linguagem,tamanhoArray,tempoExecucao,filePath")
-
 def gerarGraficos():
     print("\n-----------------------------")
     print("GERANDO GRÁFICOS\n")
@@ -67,7 +63,6 @@ def main():
     apresentacao()
 
     removerAquivosDiretorioEntrada("../../../datasets/inputs")
-    limparArquivoSaida("../../../datasets/outputs/output.csv")
 
     print("EXECUTANDO...\n")
     subprocess.run(["python3", "inputs.py"])

@@ -18,7 +18,7 @@ begin
   Write('Digite o nome do arquivo de saída: ');
   ReadLn(arqS);
 
-  arqE := '../../../datasets/inputs/random.txt';
+  arqE := '../../../datasets/inputs/random1.txt';
   arqS := '../../../datasets/outputs/output.csv';
 
   sorter.Init(arqE, arqS);

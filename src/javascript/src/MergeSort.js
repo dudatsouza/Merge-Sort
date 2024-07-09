@@ -61,11 +61,7 @@ class MergeSort {
 
     salvarTempo(n, timeTaken) {
         const data = `\nJavaScript,${n},${timeTaken},${this.arq}`;
-        fs.appendFile(this.arq2, data, (err) => {
-            if (err) {
-                console.error(`Erro ao salvar o tempo de execução: ${err.message}`);
-            }
-        });
+        fs.appendFileSync(this.arq2, data);
         console.log(`Tempo de execução: ${timeTaken}`);
     }
 

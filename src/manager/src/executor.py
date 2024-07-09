@@ -1,5 +1,6 @@
 import subprocess
 import os
+import time
 
 def execute_c(n, file, file_output):
     file = file[3:]
@@ -25,14 +26,11 @@ def execute_rust(n, file, file_output):
     subprocess.run(["cargo", "build", "--release"], cwd="../../rust/")
     subprocess.run(["./target/release/merge_sort"], input=f"{n}\n{file}\n{file_output}\n".encode(), cwd="../../rust/")
 
-def execute_pascal(n, file, file_output):
-    print("\nExecutando código em Pascal...")
-    subprocess.run(["rm", "main"], cwd="../../pascal/src")
-    subprocess.run(["rm", "main.o"], cwd="../../pascal/src")
-    subprocess.run(["rm", "MergeSort.o"], cwd="../../pascal/src")
-    subprocess.run(["rm", "MergeSort.ppu"], cwd="../../pascal/src")
-    subprocess.run(["fpc", "main.pas"], cwd="../../pascal/src")
-    subprocess.run(["./main"], input=f"{n}\n{file}\n{file_output}\n".encode(), cwd="../../pascal/src")
+# def execute_pascal(n, file, file_output):
+#     print("\nExecutando código em Pascal...")
+#     subprocess.run(["rm", "main", "main.o", "MergeSort.o", "MergeSort.ppu"], cwd="../../pascal/src")
+#     subprocess.run(["fpc", "main.pas"], cwd="../../pascal/src")
+#     subprocess.run(["./main"], input=f"{n}\n{file}\n{file_output}\n".encode(), cwd="../../pascal/src")
 
 def execute_csharp(n, file, file_output):
     file = file[3:]
@@ -59,7 +57,8 @@ def execute_python(n, file, file_output):
     print("\nExecutando código em Python...")
     subprocess.run(["python3", "main.py"], input=f"{n}\n{file}\n{file_output}\n".encode(), cwd="../../python/src/")
 
-def executando(n, file, file_output):
+def executando(n, file):
+    file_output = "../../../datasets/outputs/temp.csv"
     # Execução para C 
     execute_c(n, file, file_output)
 
@@ -70,8 +69,8 @@ def executando(n, file, file_output):
     execute_rust(n, file, file_output)
 
     # Execução para Pascal
-    execute_pascal(n, file, file_output)
-
+    # execute_pascal(n, file, file_output)
+    
     # Execução para C#
     execute_csharp(n, file, file_output)
 
@@ -87,16 +86,55 @@ def executando(n, file, file_output):
     # Execução para Python
     execute_python(n, file, file_output)
 
+def calcular_media(file_temp, file_output):
+    with open(file_temp, "r") as file:
+        lines = file.readlines()
+        times = {}
+
+        for line in lines:
+            parts = line.strip().split(",")
+            if len(parts) != 4:
+                continue
+            lang, size, time, file_path = parts
+            key = (lang, int(size), file_path)
+            if key not in times:
+                times[key] = []
+            times[key].append(float(time))
+    
+    with open(file_output, "w") as file:
+        file.write("linguagem,tamanhoArray,tempoExecucao,filePath\n")
+        for key in times:
+            lang, size, file_path = key
+            average_time = sum(times[key]) / len(times[key])
+            file.write(f"{lang},{size},{average_time},{file_path}\n")
+
 def main():
     print("EXECUTANDO CÓDIGOS...")
-    files = ["random.txt", "ascending.txt", "descending.txt", "nearly_sorted_ascending.txt", "nearly_sorted_descending.txt"]
+    files = ["random1.txt", 
+             "random2.txt", 
+             "random3.txt", 
+             "ascending.txt", 
+             "descending.txt", 
+             "nearly_sorted_ascending.txt", 
+             "nearly_sorted_descending.txt"]
     file_output = "../../../datasets/outputs/output.csv"
+    file_temp = "../../../datasets/outputs/temp.csv"
+    subprocess.run(["rm", file_temp, file_output])
+
+    inicio = time.time()
     for file in files:
         arq = "../../../datasets/inputs/" + file
         for n in [10, 100, 1000, 10000, 100000, 1000000]:
             print("\n-------------------------")
             print(f"- ARQUIVO {file} com {n} NÚMEROS...")
-            executando(n, arq, file_output)
+            for i in range(10):
+                executando(n, arq)
+    fim = time.time()
+
+    print(f"Tempo de execução: {fim - inicio:.10f}")
+    calcular_media(file_temp, file_output)
+    subprocess.run(["rm", file_temp])
+
 
 if __name__ == "__main__":
     main()

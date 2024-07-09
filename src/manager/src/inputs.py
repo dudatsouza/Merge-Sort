@@ -1,11 +1,24 @@
 import random
+import numpy as np
+import secrets
 
-def aleatorio(n):
-    file = open(f"../../../datasets/inputs/random.txt", "w")
+def aleatorio1(n):
+    file = open(f"../../../datasets/inputs/random1.txt", "w")
     for i in range(n):
-        file.write(f"{random.randint(0, 1000)} ")
+        file.write(f"{random.randint(0, 1000000)} ")
     file.close()
 
+def aleatorio2(n):
+    file = open(f"../../../datasets/inputs/random2.txt", "w")
+    for i in range(n):
+        file.write(f"{np.random.randint(0, 1000000)} ")
+    file.close()
+
+def aleatorio3(n):
+    file = open(f"../../../datasets/inputs/random3.txt", "w")
+    for i in range(n):
+        file.write(f"{secrets.randbelow(1000000)} ")
+    file.close()
 
 def crescente(n):
     file = open(f"../../../datasets/inputs/ascending.txt", "w")
@@ -39,9 +52,11 @@ def quase_ordenado_decrescente(n):
 def main():
     print("-----------------------------")
     print("GERADOR DE ENTRADAS\n")
-    print("Serão gerados 5 arquivos de entradas ordenados de forma diferente (aleatório, crescente, decrescente, quase ordenado crescente e quase ordenado decrescente)." )
+    print("Serão gerados 7 arquivos de entradas ordenados de forma diferente (aleatório1, aleatório2, aleatório3, crescente, decrescente, quase ordenado crescente e quase ordenado decrescente)." )
     n = 1000000
-    aleatorio(n)
+    aleatorio1(n)
+    aleatorio2(n)
+    aleatorio3(n)
     crescente(n)
     decrescente(n)
     quase_ordenado_crescente(n)

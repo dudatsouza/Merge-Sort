@@ -2,8 +2,10 @@ unit MergeSort;
 
 interface
 
+{$IFDEF UNIX}
 uses
-  SysUtils, Classes, StrUtils;
+  SysUtils, BaseUnix;
+{$ENDIF}
 
 type
   TMergeSort = object
@@ -14,7 +16,6 @@ type
     procedure Merge(var v: array of Integer; inicio, meio, fim: Integer);
     procedure MergeSort(var v: array of Integer; inicio, fim: Integer);
     procedure DefinirArray(n: Integer);
-    procedure MostrarArray;
     procedure SalvarTempo(n: Integer; timeTaken: Double);
   public
     constructor Init(const arqE, arqS: string);
@@ -89,44 +90,34 @@ end;
 procedure TMergeSort.DefinirArray(n: Integer);
 var
   fileIn: TextFile;
-  aux: Integer;
-  line, numStr: string;
-  num: Integer;
+  linha: string;
+  substrings: array of string;
+  i, count: Integer;
 begin
-  SetLength(dataArray, 0);
+  SetLength(dataArray, n);
 
   Assign(fileIn, arq);
   Reset(fileIn);
 
-  ReadLn(fileIn, line);
-
-  // separar a string por espaços, colocando os numeros no array
-  while Pos(' ', line) > 0 do
-  begin
-    numStr := Copy(line, 1, Pos(' ', line) - 1);
-    Delete(line, 1, Pos(' ', line));
-    num := StrToInt(numStr);
-
-    aux := Length(dataArray);
-    SetLength(dataArray, aux + 1);
-    dataArray[aux] := num;
-  end;  
-
+  // Lê a linha inteira do arquivo
+  ReadLn(fileIn, linha);
   Close(fileIn);
 
-  WriteLn('Tamanho do array após leitura: ', Length(dataArray));
+  // Divide a linha em substrings com base no espaço
+  substrings := linha.Split([' ']);
 
-  MostrarArray;
-end;
-
-procedure TMergeSort.MostrarArray;
-var
-  i: Integer;
-begin
-  WriteLn('Array: ');
-  for i := 0 to High(dataArray) do
-    Write(dataArray[i], ' ');
-  WriteLn;
+  // Preenche dataArray com os primeiros n elementos
+  count := 0;
+  for i := 0 to High(substrings) do
+  begin
+    if count < n then
+    begin
+      dataArray[count] := StrToInt(substrings[i]);
+      Inc(count);
+    end
+    else
+      Break;
+  end;
 end;
 
 procedure TMergeSort.SalvarTempo(n: Integer; timeTaken: Double);
@@ -142,22 +133,36 @@ begin
   WriteLn(fileOut, Format('Pascal,%d,%.10f,%s', [n, timeTaken, arq]));
   Close(fileOut);
 
-  WriteLn('Tempo de execução: ', timeTaken:10:10);
+  WriteLn('Tempo de execução: ', FormatFloat('0.0000000000', timeTaken));
 end;
 
 procedure TMergeSort.Run(n: Integer);
 var
-  t1, t2: QWord;
-  time_span: Double;
+  TempoInicial, TempoFinal: timeval;
+  TempoExecucao: Double;
 begin
+  WriteLn('Definindo array...');
   DefinirArray(n);
 
-  t1 := GetTickCount64;
-  MergeSort(dataArray, 0, Length(dataArray) - 1);
-  t2 := GetTickCount64;
+  {$IFDEF UNIX}
+  // Capturar o tempo inicial
+  fpGetTimeOfDay(@TempoInicial, nil);
 
-  time_span := (t2 - t1) / 1000;
-  SalvarTempo(n, time_span);
+  MergeSort(dataArray, 0, Length(dataArray) - 1);
+  
+  // Capturar o tempo final após a execução da função
+  fpGetTimeOfDay(@TempoFinal, nil);
+
+  // Calcular o tempo de execução em segundos
+  TempoExecucao := (TempoFinal.tv_sec - TempoInicial.tv_sec) + 
+                   (TempoFinal.tv_usec - TempoInicial.tv_usec) / 1000000.0;
+
+  // Exibir o tempo de execução
+  WriteLn('Tempo de execução da função: ', TempoExecucao:0:6, ' segundos');
+  {$ENDIF}
+
+  SalvarTempo(n, TempoExecucao);
+  WriteLn('Tempo salvo com sucesso.');
 end;
 
 end.

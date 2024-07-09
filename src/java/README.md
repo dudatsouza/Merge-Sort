@@ -40,6 +40,11 @@ Para compilar e executar o programa através do terminal, siga os passos abaixo:
     ```bash
     javac Main.java
     ```
+> [!CAUTION]
+> Caso não tenha o `javac` instalado, instale-o através do comando:
+> ```bash
+> sudo apt install openjdk-11-jdk
+> ```
 
 4. Execute o comando `java` para compilar e executar o programa:
     ```bash

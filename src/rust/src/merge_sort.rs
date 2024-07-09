@@ -97,7 +97,7 @@ impl MergeSort {
             .open(&self.arq2)
             .expect("Erro ao abrir o arquivo de saída");
 
-        write!(file, "\nRust, {}, {:.10}, {}", n, time_taken, self.arq).expect("Erro ao escrever no arquivo");
+        write!(file, "\nRust,{},{:.10},{}", n, time_taken, self.arq).expect("Erro ao escrever no arquivo");
 
         println!("\nTempo de execução: {:.10}", time_taken);
     }
