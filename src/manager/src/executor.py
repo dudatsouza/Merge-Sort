@@ -105,6 +105,8 @@ def calcular_media(file_temp, file_output):
         file.write("linguagem,tamanhoArray,tempoExecucao,filePath\n")
         for key in times:
             lang, size, file_path = key
+            # no file_path tem o caminho completo, então vamos pegar só o nome do arquivo
+            file_path = file_path.split("/")[-1]
             average_time = sum(times[key]) / len(times[key])
             file.write(f"{lang},{size},{average_time},{file_path}\n")
 

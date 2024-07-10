@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 import plotly.io as pio
 
 # Carregar os dados do arquivo CSV
-df = pd.read_csv('../../../datasets/Outputs/output.csv')
+df = pd.read_csv('../../../datasets/outputs/output.csv')
 
 # Obter as diferentes linguagens
 linguagens = df['linguagem'].unique()
@@ -85,6 +85,6 @@ for linguagem in linguagens:
     fig.show()
 
     # Salvar o gráfico como PNG
-    file_name = f"../../../datasets/graphs/by_languagens/performance_{linguagem}.png"
+    file_name = f"../../../datasets/graphs/by_language/performance_{linguagem}.png"
     pio.write_image(fig, file_name, width=1280, height=720)
     print(f"Gráfico salvo como {file_name}")
