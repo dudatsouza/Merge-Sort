@@ -30,6 +30,12 @@ Existe duas maneiras para executar este programa:
 ### 1. Através do terminal
 Para compilar e executar o programa através do terminal, siga os passos abaixo:
 
+> [!IMPORTANT]
+> Certifique-se de ter o `gcc` instalado em seu sistema. Caso não tenha, instale-o através do comando:
+> ```bash
+> sudo apt install gcc
+> ```
+
 1. Abra seu terminal e navegue até o diretório `src/c`:
     ```bash
     cd src/c
@@ -85,7 +91,7 @@ A seguir estão os detalhes do ambiente de compilação onde o programa foi exec
 
 | Componente      | Detalhes                          |
 |-----------------|-----------------------------------|
-| Sistema Operacional | Ununtu 22.04.4 LTS  - 64 bits|
+| Sistema Operacional | Ununtu 24.04 LTS|
 | Modelo do hardware| Dell Inspiron 13 5330|
 | Processador     | Intel Core i7-1360P Processor (18MB Cache, up to 5.00 GHz)|
 | Memória RAM     | 16GB 4800MHz LPDDR5 Memory Onboard|

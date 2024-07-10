@@ -1,4 +1,4 @@
-# 💻 Implementação em Python
+# 💻 Implementação em Rust
 
 <div align="center">
    <img align="center" height="20px" width="80px" alt="Ubuntu" src="https://img.shields.io/badge/Ubuntu-E95420?logo=ubuntu&logoColor=white"/>
@@ -7,12 +7,12 @@
 </div>
 
 ## 
-Aqui está a implementação do algoritmo Merge Sort em Python. Para entender melhor sobre este projeto, leia o [README.md](../../README.md) principal.
+Aqui está a implementação do algoritmo Merge Sort em Rust. Para entender melhor sobre este projeto, leia o [README.md](../../README.md) principal.
 
 ## 🗂 Arquivos
 
-- `src/MergeSort.py`: Implementação do algoritmo Merge Sort em Python.
-- `src/main.py`: Programa principal que executa o algoritmo Merge Sort.
+- `src/merge_sort.rs`: Implementação do algoritmo Merge Sort em Rust.
+- `src/main.rs`: Programa principal que executa o algoritmo Merge Sort.
 
 ## 📚 Como Usar
 Antes de executar é necessário clonar o repositório. Para isso, siga os passos abaixo:
@@ -27,18 +27,40 @@ Existe duas maneiras para executar este programa:
 ### 1. Através do terminal
 Para executar o programa através do terminal, siga os passos abaixo:
 
-1. Abra seu terminal e navegue até o diretório `src/python/src`:
+1. Abra seu terminal e navegue até o diretório `src/rust/src`:
     ```bash
-    cd src/python/src
+    cd src/rust/src
     ```
 
-2. Execute o comando `python3` para executar o programa:
+> [!IMPORTANT]
+> Caso não tenha o Rust instalado, instale-o através do comando:
+> ```bash
+> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+> ```
+> Também é necessário instalar o cargo, que é o gerenciador de pacotes do Rust. Para isso, execute o comando:
+> ```bash
+> sudo apt install cargo
+> ```
+
+2. Caso ainda não tenha um projeto Rust, crie um com o comando:
     ```bash
-    python3 main.py
+    cargo new merge_sort
     ```
 
-3. O programa será executado e o resultado será exibido no terminal.
-<p align="right"><a href="#-implementação-em-python">⬆️ Voltar para ao Início</a></p>
+3. Copie o arquivo `merge_sort.rs` para o diretório `src/merge_sort.rs` do projeto criado.
+
+4. Execute o comando `cargo build` para compilar o programa:
+    ```bash
+    cargo build
+    ```
+
+5. Execute o comando para executar o programa:
+    ```bash
+    ./target/debug/merge_sort
+    ```
+
+6. O programa será executado e o resultado será exibido no terminal.
+<p align="right"><a href="#-implementação-em-rust">⬆️ Voltar para ao Início</a></p>
 
 ### 2. Através do script executável
 Para compilar e executar o programa através do script executável, siga os passos abaixo:
@@ -60,19 +82,19 @@ Para compilar e executar o programa através do script executável, siga os pass
 > sudo apt install python3
 > ```
 
-<p align="right"><a href="#-implementação-em-python">⬆️ Voltar para ao Início</a></p>
+<p align="right"><a href="#-implementação-em-rust">⬆️ Voltar para ao Início</a></p>
 
-## ⛏ Python
+## ⛏ Rust
+O Rust é uma linguagem de programação de sistemas que é focada em segurança, velocidade e concorrência. Ela é extremamente rápida e eficiente, com um sistema de tipos que ajuda a evitar bugs de concorrência. O Rust é uma linguagem de programação de sistemas que é focada em segurança, velocidade e concorrência. Ela é extremamente rápida e eficiente, com um sistema de tipos que ajuda a evitar bugs de concorrência.
 
-O Python é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. É uma linguagem de programação multiparadigma, pois aceita o paradigma orientado a objetos, imperativo e funcional. Por ser uma linguagem interpretada, não é necessário compilar o código para executá-lo. Para executar o programa, basta ter o Python instalado em sua máquina.
-<p align="right"><a href="#-implementação-em-python">⬆️ Voltar para ao Início</a></p>
+<p align="right"><a href="#-implementação-em-rust">⬆️ Voltar para ao Início</a></p>
 
 ## 🔧 Ambiente de Compilação
 A seguir estão os detalhes do ambiente de compilação onde o programa foi executado:
 
 | Componente      | Detalhes                          |
 |-----------------|-----------------------------------|
-| Sistema Operacional | Ununtu 22.04.4 LTS  - 64 bits|
+| Sistema Operacional | Ununtu 24.04 LTS|
 | Modelo do hardware| Dell Inspiron 13 5330|
 | Processador     | Intel Core i7-1360P Processor (18MB Cache, up to 5.00 GHz)|
 | Memória RAM     | 16GB 4800MHz LPDDR5 Memory Onboard|
@@ -82,7 +104,7 @@ A seguir estão os detalhes do ambiente de compilação onde o programa foi exec
 
 > [!IMPORTANT]
 > Os detalhes acima são baseados no ambiente de compilação utilizado durante o desenvolvimento do programa e podem variar em diferentes sistemas.
-<p align="right"><a href="#-implementação-em-python">⬆️ Voltar para ao Início</a></p>
+<p align="right"><a href="#-implementação-em-rust">⬆️ Voltar para ao Início</a></p>
 
 ## 📧 Contato dos Colaboradores
 Para mais informações ou sugestões, sinta-se à vontade para entrar em contato:
@@ -94,7 +116,7 @@ Para mais informações ou sugestões, sinta-se à vontade para entrar em contat
 |  Sergio Ramos | [![Gmail][Gmail Badge]][Gmail Colab 3] [![Linkedin][Linkedin Badge]][Linkedin Colab 3] [![Instagram][Instagram Badge]][Instagram Colab 3] [![GitHub][GitHub Badge]][GitHub Colab 3]          |  
 
 Ficaremos felizes em receber feedbacks, contribuições ou responder a quaisquer dúvidas que você possa ter sobre o programa.
-<p align="right"><a href="#-implementação-em-python">⬆️ Voltar para ao Início</a></p>
+<p align="right"><a href="#-implementação-em-rust">⬆️ Voltar para ao Início</a></p>
 
 
 [Gmail Badge]: https://img.shields.io/badge/-Gmail-c14438?style=flat-square&logo=Gmail&logoColor=white

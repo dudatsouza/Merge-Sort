@@ -41,7 +41,8 @@ Existem duas maneiras para gerar os gráficos de desempenho dos algoritmos de or
 > Caso não tenha o Python ou a biblioteca Matplotlib instalada, instale-os através dos comandos:
 > ```bash
 > sudo apt install python3
-> pip install matplotlib
+> pip install pandas
+> pip install kaleido
 > ```
 
 3. Os gráficos de desempenho serão gerados e salvos no diretório `datasets/graphs/`.
@@ -80,7 +81,7 @@ A seguir estão os detalhes do ambiente de compilação onde o programa foi exec
 
 | Componente      | Detalhes                          |
 |-----------------|-----------------------------------|
-| Sistema Operacional | Ununtu 22.04.4 LTS  - 64 bits|
+| Sistema Operacional | Ununtu 24.04 LTS|
 | Modelo do hardware| Dell Inspiron 13 5330|
 | Processador     | Intel Core i7-1360P Processor (18MB Cache, up to 5.00 GHz)|
 | Memória RAM     | 16GB 4800MHz LPDDR5 Memory Onboard|

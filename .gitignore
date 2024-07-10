@@ -42,6 +42,11 @@ npm-debug.log
 # PHP
 vendor/
 
+# Rust
+src/rust/target/
+Cargo.lock
+Cargo.toml
+
 # # Exclude datasets outputs
 # datasets/outputs/*.csv
 # datasets/graphs/by_input/*.png
@@ -53,3 +58,7 @@ _config.yml
 # Others
 .idea/
 .vscode/
+
+
+# pasta com a implementação em pascal
+pascal/

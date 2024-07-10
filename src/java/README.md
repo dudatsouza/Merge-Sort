@@ -31,6 +31,7 @@ Para compilar e executar o programa através do terminal, siga os passos abaixo:
     ```bash
     cd src/java/src
     ```
+
 2. Execute o comando `rm *.class` para remover arquivos antigos:
     ```bash
     rm *.class
@@ -40,6 +41,7 @@ Para compilar e executar o programa através do terminal, siga os passos abaixo:
     ```bash
     javac Main.java
     ```
+
 > [!CAUTION]
 > Caso não tenha o `javac` instalado, instale-o através do comando:
 > ```bash
@@ -89,7 +91,7 @@ A seguir estão os detalhes do ambiente de compilação onde o programa foi exec
 
 | Componente      | Detalhes                          |
 |-----------------|-----------------------------------|
-| Sistema Operacional | Ununtu 22.04.4 LTS  - 64 bits|
+| Sistema Operacional | Ununtu 24.04 LTS|
 | Modelo do hardware| Dell Inspiron 13 5330|
 | Processador     | Intel Core i7-1360P Processor (18MB Cache, up to 5.00 GHz)|
 | Memória RAM     | 16GB 4800MHz LPDDR5 Memory Onboard|
