@@ -3,7 +3,8 @@ const app = Vue.createApp({
         return {
             btnIsDisabled: false,
             msgDone: '',
-            inpVal: 350,
+            inpVal: 500,
+            arraySize: 500, 
             dice: [],
             keyNumber: 0,
             buttonText: 'Merge Sort'
@@ -20,6 +21,12 @@ const app = Vue.createApp({
             handler() {
                 this.updateMoveDuration();
             },
+        },
+        arraySize: {
+            immediate: true,
+            handler(newSize) {
+                this.updateDiceArray(newSize);
+            }
         }
     },
     methods: {
@@ -27,7 +34,7 @@ const app = Vue.createApp({
             if (this.buttonText === "Merge Sort") {
                 this.mergeSort(0, this.dice.length);
             } else {
-                this.addDie50();
+                this.updateDiceArray(this.arraySize);
             }
         },
         updateMoveDuration() {
@@ -60,7 +67,7 @@ const app = Vue.createApp({
                     this.dice[i].isFinished = true;
                 }
                 this.btnIsDisabled = false;
-                this.msgDone = 'Done!';
+                this.msgDone = 'DONE!';
                 this.buttonText = 'New Values';
             }
         },
@@ -122,7 +129,7 @@ const app = Vue.createApp({
         },
         addDie() {
             const newDie = {
-                dieNmbr: Math.ceil(Math.random() * 95) + 5,
+                dieNmbr: Math.ceil(Math.random() * 290) + 10,
                 left: 0,
                 isActive: false,
                 isChanging: false,
@@ -132,9 +139,9 @@ const app = Vue.createApp({
             this.dice.push(newDie);
             this.keyNumber++;
         },
-        addDie50() {
+        updateDiceArray(size) {
             this.dice = [];
-            for (let i = 0; i < 18; i++) {
+            for (let i = 0; i < size; i++) {
                 this.addDie();
             }
             this.buttonText = "Merge Sort";
@@ -142,7 +149,7 @@ const app = Vue.createApp({
         }
     },
     mounted() {
-        this.addDie50();
+        this.updateDiceArray(this.arraySize);
         this.updateMoveDuration();
     }
 })

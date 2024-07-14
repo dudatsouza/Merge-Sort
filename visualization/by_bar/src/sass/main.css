@@ -1,17 +1,52 @@
+#header {
+    font-size: 18px;
+}
+
+p {
+    font-size: 12px;
+}
+
+#msgDiv {
+    align-items: center;
+    color: green;
+    font-size: 20px;
+}
+
+footer {
+	color: #5e5b5b;
+	padding: 20px;
+	text-align: center;
+	margin-top: 160px;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+li {
+    font-size: 10px;
+}
+
+a {
+	color: #5e5b5b;
+	text-decoration: none;
+}
+
 #frameDiv {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-end;
-    height: 100px;
     width: 100%;
     position: relative;
 }
 
 .diceDiv {
-    width: 20px;
-    background-color: rgb(105, 99, 99);
-    margin: 0 1px;
+    width: 2px;
+    background-color: rgb(78, 73, 73);
+    margin: 0;
     transition: transform 1s ease-out, top 0.5s ease-out;
     position: relative;
 }

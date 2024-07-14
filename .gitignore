@@ -59,6 +59,7 @@ _config.yml
 .idea/
 .vscode/
 
-
 # pasta com a implementação em pascal
-pascal/
+src/pascal/
+
+paper/

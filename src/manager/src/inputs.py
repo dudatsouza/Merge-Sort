@@ -21,33 +21,36 @@ def aleatorio3(n):
     file.close()
 
 def crescente(n):
-    file = open(f"../../../datasets/inputs/ascending.txt", "w")
-    for i in range(n):
-        file.write(f"{i} ")
-    file.close()    
+    nums = list(range(n))
+    with open("../../../datasets/inputs/ascending.txt", "w") as file:
+        file.write(" ".join(map(str, nums)))
 
 def decrescente(n):
-    file = open(f"../../../datasets/inputs/descending.txt", "w")
-    for i in range(n, 0, -1):
-        file.write(f"{i} ")
-    file.close()
-
+    nums = list(range(n, 0, -1))
+    with open("../../../datasets/inputs/descending.txt", "w") as file:
+        file.write(" ".join(map(str, nums)))
 
 def quase_ordenado_crescente(n):
-    file = open(f"../../../datasets/inputs/nearly_sorted_ascending.txt", "w")
-    for i in range(n):
-        file.write(f"{i} ")
-    for i in range(n//10):
-        file.write(f"{random.randint(0, n)} ")
-    file.close()
+    nums = list(range(n))
+    num_substituicoes = n // 10
+    
+    for _ in range(num_substituicoes):
+        pos = random.randint(0, n-1)
+        nums[pos] = random.randint(0, n)
+    
+    with open("../../../datasets/inputs/nearly_sorted_ascending.txt", "w") as file:
+        file.write(" ".join(map(str, nums)))
 
 def quase_ordenado_decrescente(n):
-    file = open(f"../../../datasets/inputs/nearly_sorted_descending.txt", "w")
-    for i in range(n, 0, -1):
-        file.write(f"{i} ")
-    for i in range(n//10):
-        file.write(f"{random.randint(0, n)} ")
-    file.close()
+    nums = list(range(n, 0, -1))
+    num_substituicoes = n // 10
+    
+    for _ in range(num_substituicoes):
+        pos = random.randint(0, n-1)
+        nums[pos] = random.randint(0, n)
+    
+    with open("../../../datasets/inputs/nearly_sorted_descending.txt", "w") as file:
+        file.write(" ".join(map(str, nums)))
 
 def main():
     print("-----------------------------")

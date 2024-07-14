@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Sort Visualization</title>
+    <style>
+        body, html {
+            height: 100%;
+            justify-content: center;
+            margin: 0;
+        }
+        .array-element {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #000;
+            margin: 2px;
+        }
+        .highlight {
+            background-color: #79a9c3;
+        }
+        .merged {
+            background-color: #a3d9a5;
+        }
+        .visualize-table {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .visualize-table td {
+            border: 2px solid #000;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="arraySize">Array size:</label>
+        <select id="arraySize">
+            <script>
+                for (let i = 4; i <= 50; i++) {
+                    document.write(`<option value="${i}">${i}</option>`);
+                }
+            </script>
+        </select>
+        <input type="text" id="arrayValues" placeholder="Type multiple array values using comma separated">
+        <button id="runButton" onclick="runMergeSort()">Run</button>
+        <button onclick="reset()">Reset</button>
+    </div>
+
+    <div id="visualize">
+        <table class="visualize-table" id="visualizeTable">
+        </table>
+    </div>
+
+    <script>
+        let delay = 1000;  // Delay in milliseconds
+        let steps = [];
+        let currentStep = 0;
+
+        function createArrayElement(value) {
+            const element = document.createElement('div');
+            element.className = 'array-element';
+            element.textContent = value;
+            return element;
+        }
+
+        function runMergeSort() {
+            const arraySize = document.getElementById('arraySize').value;
+            let arrayValues = document.getElementById('arrayValues').value;
+
+            let array;
+            if (arrayValues) {
+                array = arrayValues.split(',').map(Number);
+            } else {
+                array = Array.from({ length: arraySize }, () => Math.floor(Math.random() * 1000));
+            }
+
+            reset();
+            createLevelContainer([array], 'visualizeTable', 'merge'); // Inicia com o array original em um único nível
+
+            steps = [];
+            currentStep = 0;
+            mergeSort(array, 0, array.length - 1);
+            animateSteps();
+        }
+
+        function reset() {
+            document.getElementById('visualizeTable').innerHTML = '';
+            steps = [];
+            currentStep = 0;
+        }
+
+        function mergeSort(arr, left, right, level = 0) {
+            if (left < right) {
+                const middle = Math.floor((left + right) / 2);
+
+                const L = arr.slice(left, middle + 1); // Subarray esquerdo
+                const R = arr.slice(middle + 1, right + 1); // Subarray direito
+
+                // Adiciona os passos para visualizar a divisão dos subarrays
+                steps.push({ array: [...arr], highlight: [], type: 'subarray', level: level }); // Mostra o array completo
+                steps.push({ array: [...L], highlight: [], type: 'subarray', className: 'left-subarray', level: level + 1 }); // Mostra o subarray esquerdo
+                steps.push({ array: [...R], highlight: [], type: 'subarray', className: 'right-subarray', level: level + 1 }); // Mostra o subarray direito
+
+                mergeSort(L, 0, L.length - 1, level + 1); // Ordena o subarray esquerdo
+                mergeSort(R, 0, R.length - 1, level + 1); // Ordena o subarray direito
+
+                merge(arr, left, middle, right, level);
+            }
+        }
+
+        function merge(arr, left, middle, right, level) {
+            const n1 = middle - left + 1;
+            const n2 = right - middle;
+
+            const L = new Array(n1);
+            const R = new Array(n2);
+
+            for (let i = 0; i < n1; i++) {
+                L[i] = arr[left + i];
+            }
+            for (let j = 0; j < n2; j++) {
+                R[j] = arr[middle + 1 + j];
+            }
+
+            let i = 0, j = 0, k = left;
+
+            while (i < n1 && j < n2) {
+                if (L[i] <= R[j]) {
+                    arr[k] = L[i];
+                    steps.push({ array: [...arr], highlight: [left + i, middle + 1 + j], type: 'compare', level: level });
+                    i++;
+                } else {
+                    arr[k] = R[j];
+                    steps.push({ array: [...arr], highlight: [left + i, middle + 1 + j], type: 'compare', level: level });
+                    j++;
+                }
+                steps.push({ array: [...arr], highlight: [k], type: 'merge', level: level });
+                k++;
+            }
+
+            while (i < n1) {
+                arr[k] = L[i];
+                steps.push({ array: [...arr], highlight: [left + i], type: 'merge', level: level });
+                i++;
+                k++;
+            }
+
+            while (j < n2) {
+                arr[k] = R[j];
+                steps.push({ array: [...arr], highlight: [middle + 1 + j], type: 'merge', level: level });
+                j++;
+                k++;
+            }
+        }
+
+        function animateSteps() {
+            if (currentStep < steps.length) {
+                const step = steps[currentStep];
+                displayArrayWithHighlights(step.array, 'visualizeTable', step.highlight, step.type, step.className, step.level);
+                currentStep++;
+                setTimeout(animateSteps, delay);
+            }
+        }
+
+        function displayArrayWithHighlights(arr, tableId, highlight, type, className = '', level) {
+            const table = document.getElementById(tableId);
+            if (!table) return; // Verifica se a tabela existe antes de prosseguir
+
+            let levelRow = table.querySelector(`#level-${level}`);
+            if (!levelRow) { // Se o nível ainda não existe, cria um novo
+                levelRow = document.createElement('tr');
+                levelRow.id = `level-${level}`;
+                table.appendChild(levelRow);
+            }
+
+            levelRow.innerHTML = ''; // Limpa o conteúdo anterior da linha
+
+            let cell;
+            if (className.includes('left-subarray')) {
+                cell = levelRow.querySelector('.left-cell');
+                if (!cell) {
+                    cell = document.createElement('td');
+                    cell.className = 'left-cell';
+                    levelRow.appendChild(cell);
+                }
+            } else if (className.includes('right-subarray')) {
+                cell = levelRow.querySelector('.right-cell');
+                if (!cell) {
+                    cell = document.createElement('td');
+                    cell.className = 'right-cell';
+                    levelRow.appendChild(cell);
+                }
+            } else {
+                cell = document.createElement('td');
+                cell.colSpan = 2; // O array completo ocupa duas colunas
+                levelRow.appendChild(cell);
+            }
+
+            // Limpa o conteúdo anterior da célula
+            cell.innerHTML = '';
+
+            // Adiciona os elementos do array na célula
+            arr.forEach((value, index) => {
+                const element = createArrayElement(value);
+                if (highlight.includes(index)) {
+                    if (type === 'compare') {
+                        element.classList.add('highlight');
+                    } else if (type === 'merge') {
+                        element.classList.add('merged');
+                    }
+                }
+                cell.appendChild(element);
+            });
+        }
+
+        function createLevelContainer(levels, tableId, type) {
+            const table = document.getElementById(tableId);
+            if (!table) return; // Verifica se a tabela existe antes de prosseguir
+
+            table.innerHTML = '';
+
+            levels.forEach((level, levelIndex) => {
+                const levelRow = document.createElement('tr');
+                levelRow.id = `level-${levelIndex}`;
+                table.appendChild(levelRow);
+
+                displayArrayWithHighlights(level, tableId, [], type, '', levelIndex);
+            });
+        }
+    </script>
+</body>
+</html>

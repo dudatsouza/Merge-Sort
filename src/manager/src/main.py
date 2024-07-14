@@ -12,14 +12,16 @@ def removerAquivosDiretorioEntrada(caminho):
 def gerarGraficos():
     print("\n-----------------------------")
     print("GERANDO GRÁFICOS\n")
-    print("Será gerado 11 gráficos com os resultados obtidos, serão abertos no seu navegador padrão.")
+    print("Serão gerado  gráficos com os resultados obtidos e serão abertos no seu navegador padrão.")
     print("\nDEPOIS DE VISUALIZAR OS GRÁFICOS, FECHAR A JANELA DO NAVEGADOR PARA CONTINUAR A EXECUÇÃO DO PROGRAMA AQUI...")
     print("\nPressione ENTER para continuar...")
     input()
-    os.system('python3 ../Gráficos/gráficos.py')
-    os.system('python3 ../Gráficos/gráficos2.py')
+    os.system('python3 ../../graphs/src/plot_by_input.py')
+    os.system('python3 ../../graphs/src/plot_by_input_type.py')
+    os.system('python3 ../../graphs/src/plot_by_language.py')
+    os.system('python3 ../../graphs/src/plot_by_language_type.py')
 
-    print("Gráficos gerados com sucesso, você pode visualizar os gráficos na pasta '../datasets/Gáficos/'.")
+    print("Gráficos gerados com sucesso, você pode visualizar os gráficos na pasta '../../../datasets/graphs/'")
     print("-----------------------------")
 
 def abrir_novo_terminal(lock_file_path):
@@ -50,13 +52,79 @@ def run():
     print("\nExecução finalizada com sucesso!")
     print("-----------------------------")
 
+def mediaTipoLinguagem():
+    print("\n-----------------------------")
+    print("CALCULANDO MÉDIA DOS TEMPOS DE EXECUÇÃO\n")
+    print("Será calculado a média dos tempos de execução das linguagens compiladas e interpretadas.")
+    print("\nPressione ENTER para continuar...")
+    input()
+
+    # Ler o arquivo output e salvar os tempos de execução em um dicionário
+    with open("../../../datasets/outputs/output.csv", "r") as file:
+        # Identificar linguagens compiladas e interpretadas
+        lines = file.readlines()
+        compiladas = {"C", "C++", "Rust"}
+        interpretadas = {"C#", "Java", "JavaScript", "PHP", "Python"}
+        times_compiladas = {}
+        times_interpretadas = {}
+
+        for line in lines[1:]:  # Pular a primeira linha do cabeçalho
+            parts = line.strip().split(",")
+            if len(parts) != 4:
+                continue
+            lang, size, time, file_path = parts
+            key = (int(size), file_path)
+            time = float(time)
+            if lang in compiladas:
+                if key not in times_compiladas:
+                    times_compiladas[key] = []
+                times_compiladas[key].append(time)
+            elif lang in interpretadas:
+                if key not in times_interpretadas:
+                    times_interpretadas[key] = []
+                times_interpretadas[key].append(time)
+
+    # Calcular a média dos tempos de execução e adicionar no final do arquivo
+    with open("../../../datasets/outputs/output.csv", "a") as file:
+        for key in times_compiladas:
+            size, file_path = key
+            average_time = sum(times_compiladas[key]) / len(times_compiladas[key])
+            lang = "Compiladas"
+            average_time = f"{average_time:.10f}"
+            file.write(f"{lang},{size},{average_time},{file_path}\n")
+        
+        for key in times_interpretadas:
+            size, file_path = key
+            average_time = sum(times_interpretadas[key]) / len(times_interpretadas[key])
+            lang = "Interpretadas"
+            average_time = f"{average_time:.10f}"
+            file.write(f"{lang},{size},{average_time},{file_path}\n")
+
+    print("\nMédias calculadas com sucesso!")
+    print("-----------------------------")
+
+def agradecimentoDados():
+    print("\n-----------------------------")
+    print("Agradecemos a ateção e a execução do programa. Nós nos vemos na próxima!!\n\n")
+    print("-----------------------------")
+    print("Feito por: - Maíra Lacerda")
+    print("           - Maria Eduarda Teixeira")
+    print("           - Sergio Henrique")
+    print("Engenhaia de Computação - 2024/1 - CEFET/MG - Campus V")
+    print("Disciplina: Algoritimos e Estrutura de Dados I")
+    print("Professora: Michel Pires")
+    print("Acesse o repositório do projeto: https://github.com/dudatsouza/Merge-Sort")
+
 def finalizando():
     print("\n-----------------------------")
     print("FIM DO PROGRAMA\n")
     print("O programa foi finalizado com sucesso!")
     print("-----------------------------")
-    print("\nPressione ENTER para sair...")
+    print("\nPressione ENTER para finalizar...")
     input()
+    os.system('clear')
+    agradecimentoDados()
+    input("\nPressione ENTER para sair...")
 
            
 def main():
@@ -68,6 +136,8 @@ def main():
     subprocess.run(["python3", "inputs.py"])
 
     run()
+    
+    mediaTipoLinguagem()
 
     gerarGraficos()
 
@@ -87,7 +157,9 @@ if __name__ == "__main__":
 
         while os.path.exists(lock_file_path):
             time.sleep(1)
+
         print("\nExecução finalizada!")
+        agradecimentoDados()
 
     elif sys.argv[1] == '--no-terminal':
         lock_file_path = sys.argv[2]

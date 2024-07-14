@@ -9,9 +9,22 @@
 </head>
 
 <body>
+    <div id="header" align="center">
+        <img src="https://repository-images.githubusercontent.com/12823524/d0f33d46-c403-4fe1-9e5a-b4767271f939" alt="CEFET-MG" width="300" height="150">    
+        <h1>Visualização Merge Sort</h1>
+    </div>
+    <div id="info" align="center">
+        <h2>Disciplina: Algoritmos e Estruturas de Dados I<br>
+            Professor: Michel Pires<br>
+            Curso: Engenharia de Computação<br>
+            2024/1
+        </h2>
+    </div>
+
     <div id="app">
         <div id="vueApp">
-            <p>Speed: <input type="range" min="50" max="500" v-model="inpVal"></p>
+            <p>Speed: <input type="range" min="200" max="800" v-model="inpVal"></p>
+            <p>Array size: <input type="text" v-model="arraySize"></p>
             <button @click="action" :disabled="btnIsDisabled">{{ buttonText }}</button>
             <br>
             <div id="frameDiv">
@@ -19,10 +32,22 @@
                     :style="{ transform: `translateX(${die.left}px)`, height: die.dieNmbr + 'px', top: die.isActive ? '5px' : '0' }"
                     :class="{ active: die.isActive, changing: die.isChanging }"></div>
             </div>
-            <p>{{ msgDone }}</p>
+            <div id="msgDiv" align="center">
+                <b>{{ msgDone }}</b>
+            </div>
         </div>
     </div>
 
+    <footer>
+        <p>&copy; 2024 - Metódos de Ordenação - Merge Sort</p>
+        <nav>
+            <ul>
+                <li>Desenvolvido por: Maíra Lacerda, Maria Eduarda Teixeira e Sergio Henrique</li>
+                <li><a href="https://github.com/dudatsouza/Merge-Sort">Acesse o trabalho completo</a></li>
+        </nav>
+    </footer>
+
+  
     <script src="https://unpkg.com/vue@3.2.20/dist/vue.global.prod.js"></script>
     <script src="js/main.js"></script>
 </body>
