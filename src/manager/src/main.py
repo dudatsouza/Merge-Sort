@@ -63,8 +63,8 @@ def mediaTipoLinguagem():
     with open("../../../datasets/outputs/output.csv", "r") as file:
         # Identificar linguagens compiladas e interpretadas
         lines = file.readlines()
-        compiladas = {"C", "C++", "Rust"}
-        interpretadas = {"C#", "Java", "JavaScript", "PHP", "Python"}
+        compiladas = {"C", "C++", "C#", "Rust"}
+        interpretadas = {"Java", "JavaScript", "PHP", "Python"}
         times_compiladas = {}
         times_interpretadas = {}
 
