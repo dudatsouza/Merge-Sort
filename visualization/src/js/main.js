@@ -3,46 +3,35 @@ const app = Vue.createApp({
         return {
             btnIsDisabled: false,
             msgDone: '',
-            inpVal: 500,
-            arraySize: 500, 
+            arraySize: 10,
+            numExecutions: 5,
             dice: [],
             keyNumber: 0,
-            buttonText: 'Merge Sort'
-        }
-    },
-    computed: {
-        delay() {
-            return 550 - this.inpVal;
-        }
-    },
-    watch: {
-        delay: {
-            immediate: true,
-            handler() {
-                this.updateMoveDuration();
-            },
-        },
-        arraySize: {
-            immediate: true,
-            handler(newSize) {
-                this.updateDiceArray(newSize);
-            }
+            buttonText: 'Merge Sort',
+            executionTimes: [],
+            arraySizes: []
         }
     },
     methods: {
-        action() {
+        async action() {
             if (this.buttonText === "Merge Sort") {
-                this.mergeSort(0, this.dice.length);
+                this.executionTimes = [];
+                this.arraySizes = [];
+                let sizes = Array.from({ length: this.numExecutions }, (_, i) => Math.floor(this.arraySize / this.numExecutions) * (i + 1));
+                for (let size of sizes) {
+                    this.updateDiceArray(size);
+                    let startTime = performance.now();
+                    await this.mergeSort(0, this.dice.length);
+                    let endTime = performance.now();
+                    this.executionTimes.push(endTime - startTime);
+                    this.arraySizes.push(size);
+                }
+                this.plotGraph(sizes, this.executionTimes);
+                this.btnIsDisabled = false;
+                this.msgDone = 'DONE!';
+                this.buttonText = 'New Values';
             } else {
                 this.updateDiceArray(this.arraySize);
-            }
-        },
-        updateMoveDuration() {
-            const stylesheet = document.styleSheets[0];
-            const rules = Array.from(stylesheet.cssRules);
-            const moveRule = rules.find(rule => rule.selectorText === '.v-move');
-            if (moveRule) {
-                moveRule.style.transitionDuration = `${this.delay}ms`;
             }
         },
         async mergeSort(start, end) {
@@ -55,7 +44,7 @@ const app = Vue.createApp({
             this.btnIsDisabled = true;
 
             const mid = Math.floor((start + end) / 2);
-            await new Promise(resolve => setTimeout(resolve, this.delay));
+            await new Promise(resolve => setTimeout(resolve, 100));
             await this.mergeSort(start, mid);
             await this.mergeSort(mid, end);
 
@@ -66,7 +55,6 @@ const app = Vue.createApp({
                     this.dice[i].isActive = false;
                     this.dice[i].isFinished = true;
                 }
-                this.btnIsDisabled = false;
                 this.msgDone = 'DONE!';
                 this.buttonText = 'New Values';
             }
@@ -78,10 +66,10 @@ const app = Vue.createApp({
             for (let k = start; k < end; k++) {
                 this.dice[k].isActive = true;
             }
-            await new Promise(resolve => setTimeout(resolve, this.delay));
+            await new Promise(resolve => setTimeout(resolve, 100));
 
             while (i < mid && j < end) {
-                await new Promise(resolve => setTimeout(resolve, this.delay));
+                await new Promise(resolve => setTimeout(resolve, 100));
                 let diceEl;
                 if (this.dice[i].dieNmbr < this.dice[j].dieNmbr) {
                     diceEl = this.dice.splice(i, 1)[0];
@@ -92,7 +80,7 @@ const app = Vue.createApp({
                 }
                 diceEl.isChanging = true;
                 this.dice.splice(pushIndex, 0, diceEl);
-                await new Promise(resolve => setTimeout(resolve, this.delay));
+                await new Promise(resolve => setTimeout(resolve, 100));
                 diceEl.isChanging = false;
                 diceEl.isActive = false;
                 i++;
@@ -103,7 +91,7 @@ const app = Vue.createApp({
                 let diceEl = this.dice.splice(j, 1)[0];
                 diceEl.isChanging = true;
                 this.dice.splice(pushIndex, 0, diceEl);
-                await new Promise(resolve => setTimeout(resolve, this.delay));
+                await new Promise(resolve => setTimeout(resolve, 100));
                 diceEl.isChanging = false;
                 diceEl.isActive = false;
                 pushIndex++;
@@ -116,7 +104,7 @@ const app = Vue.createApp({
                 let diceEl = this.dice.splice(i, 1)[0];
                 diceEl.isChanging = true;
                 this.dice.splice(pushIndex, 0, diceEl);
-                await new Promise(resolve => setTimeout(resolve, this.delay));
+                await new Promise(resolve => setTimeout(resolve, 100));
                 diceEl.isChanging = false;
                 diceEl.isActive = false;
                 pushIndex++;
@@ -129,7 +117,7 @@ const app = Vue.createApp({
         },
         addDie() {
             const newDie = {
-                dieNmbr: Math.ceil(Math.random() * 290) + 10,
+                dieNmbr: Math.ceil(Math.random() * 190) + 10,
                 left: 0,
                 isActive: false,
                 isChanging: false,
@@ -146,11 +134,53 @@ const app = Vue.createApp({
             }
             this.buttonText = "Merge Sort";
             this.msgDone = '';
+        },
+        plotGraph(sizes, times) {
+            const ctx = document.getElementById('chart').getContext('2d');
+            const nLogN = sizes.map(n => 330 * n * Math.log(n));
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: sizes,
+                    datasets: [
+                        {
+                            label: 'O(n log n)',
+                            data: nLogN,
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            fill: false
+                        },
+                        {
+                            label: 'Execution Times',
+                            data: times.map((time, index) => ({ x: sizes[index], y: time })),
+                            backgroundColor: 'rgba(54, 162, 235, 1)',
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Tamanho do Array'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Tempo (ms)'
+                            }
+                        }
+                    }
+                }
+            });
         }
     },
     mounted() {
         this.updateDiceArray(this.arraySize);
-        this.updateMoveDuration();
     }
-})
-app.mount('#vueApp')
+});
+
+app.mount('#vueApp');

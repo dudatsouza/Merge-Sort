@@ -23,32 +23,49 @@
 
     <div id="app">
         <div id="vueApp">
-            <p>Speed: <input type="range" min="200" max="800" v-model="inpVal"></p>
             <p>Array size: <input type="text" v-model="arraySize"></p>
+            <p>Number of executions: <input type="number" v-model="numExecutions" min="1"></p>
             <button @click="action" :disabled="btnIsDisabled">{{ buttonText }}</button>
             <br>
             <div id="frameDiv">
                 <div class="diceDiv" v-for="(die, index) in dice" :key="index"
                     :style="{ transform: `translateX(${die.left}px)`, height: die.dieNmbr + 'px', top: die.isActive ? '5px' : '0' }"
-                    :class="{ active: die.isActive, changing: die.isChanging }"></div>
+                    :class="{ active: die.isActive, changing: die.isChanging }">
+                </div>
+                
+                <div id="executionDiv">
+                    <table id="executionTable" border="1">
+                        <tr>
+                            <th>Execução</th>
+                            <th>Tamanho do Array</th>
+                            <th>Tempo de Execução (ms)</th>
+                        </tr>
+                        <tr v-for="(time, index) in executionTimes" :key="index">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ arraySizes[index] }}</td>
+                            <td>{{ time.toFixed(2) }}</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-            <div id="msgDiv" align="center">
-                <b>{{ msgDone }}</b>
+            <div id="chartDiv" align="center">
+                <canvas id="chart"></canvas>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 - Metódos de Ordenação - Merge Sort</p>
+        <p1>&copy; 2024 - Metódos de Ordenação - Merge Sort</p1>
         <nav>
             <ul>
                 <li>Desenvolvido por: Maíra Lacerda, Maria Eduarda Teixeira e Sergio Henrique</li>
                 <li><a href="https://github.com/dudatsouza/Merge-Sort">Acesse o trabalho completo</a></li>
+            </ul>
         </nav>
     </footer>
 
-  
     <script src="https://unpkg.com/vue@3.2.20/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/main.js"></script>
 </body>
 

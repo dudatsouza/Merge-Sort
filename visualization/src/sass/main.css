@@ -3,20 +3,30 @@
 }
 
 p {
-    font-size: 12px;
-}
-
-#msgDiv {
-    align-items: center;
-    color: green;
     font-size: 20px;
 }
 
+p1 {
+    font-size: 12px;
+}
+
+#chartDiv {
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    margin-left: 520px;
+    margin-top: 20px;
+}
+
 footer {
-	color: #5e5b5b;
-	padding: 20px;
-	text-align: center;
-	margin-top: 160px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 ul {
@@ -43,8 +53,13 @@ a {
     position: relative;
 }
 
+#executionDiv {
+    margin-left: 30px;
+    font-size: 20px;
+}
+
 .diceDiv {
-    width: 2px;
+    width: 10px;
     background-color: rgb(78, 73, 73);
     margin: 0;
     transition: transform 1s ease-out, top 0.5s ease-out;
@@ -63,7 +78,7 @@ a {
 .v-move,
 .v-enter-active,
 .v-leave-active {
-    transition: top 1s ease-out;
+    transition: top 0.5s ease-out;
 }
 
 .v-enter,
