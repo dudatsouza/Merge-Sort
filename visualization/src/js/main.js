@@ -44,7 +44,7 @@ const app = Vue.createApp({
             this.btnIsDisabled = true;
 
             const mid = Math.floor((start + end) / 2);
-            await new Promise(resolve => setTimeout(resolve, 100));
+            await new Promise(resolve => setTimeout(resolve, 0));
             await this.mergeSort(start, mid);
             await this.mergeSort(mid, end);
 
@@ -66,10 +66,10 @@ const app = Vue.createApp({
             for (let k = start; k < end; k++) {
                 this.dice[k].isActive = true;
             }
-            await new Promise(resolve => setTimeout(resolve, 100));
+            await new Promise(resolve => setTimeout(resolve, 0));
 
             while (i < mid && j < end) {
-                await new Promise(resolve => setTimeout(resolve, 100));
+                await new Promise(resolve => setTimeout(resolve, 0));
                 let diceEl;
                 if (this.dice[i].dieNmbr < this.dice[j].dieNmbr) {
                     diceEl = this.dice.splice(i, 1)[0];
@@ -80,7 +80,7 @@ const app = Vue.createApp({
                 }
                 diceEl.isChanging = true;
                 this.dice.splice(pushIndex, 0, diceEl);
-                await new Promise(resolve => setTimeout(resolve, 100));
+                await new Promise(resolve => setTimeout(resolve, 0));
                 diceEl.isChanging = false;
                 diceEl.isActive = false;
                 i++;
@@ -91,7 +91,7 @@ const app = Vue.createApp({
                 let diceEl = this.dice.splice(j, 1)[0];
                 diceEl.isChanging = true;
                 this.dice.splice(pushIndex, 0, diceEl);
-                await new Promise(resolve => setTimeout(resolve, 100));
+                await new Promise(resolve => setTimeout(resolve, 0));
                 diceEl.isChanging = false;
                 diceEl.isActive = false;
                 pushIndex++;
@@ -104,7 +104,7 @@ const app = Vue.createApp({
                 let diceEl = this.dice.splice(i, 1)[0];
                 diceEl.isChanging = true;
                 this.dice.splice(pushIndex, 0, diceEl);
-                await new Promise(resolve => setTimeout(resolve, 100));
+                await new Promise(resolve => setTimeout(resolve, 0));
                 diceEl.isChanging = false;
                 diceEl.isActive = false;
                 pushIndex++;
@@ -137,7 +137,7 @@ const app = Vue.createApp({
         },
         plotGraph(sizes, times) {
             const ctx = document.getElementById('chart').getContext('2d');
-            const nLogN = sizes.map(n => 330 * n * Math.log(n));
+            const nLogN = sizes.map(n => 15 * n * Math.log(n));
             new Chart(ctx, {
                 type: 'line',
                 data: {

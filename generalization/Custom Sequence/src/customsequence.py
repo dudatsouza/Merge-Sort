@@ -42,5 +42,8 @@ elementos = [
     Elemento('%')
 ]
 sequencia = '!@#$%¨&*/'  # Sequência personalizada de caracteres
+print("Ordem dos caracteres: !, @, #, $, %, ¨, &, *")
+print("Sequência não ordenada: ", elementos)
+print("Ordenando...\n")
 sorted_elementos = merge_sort(elementos, sequencia)
-print(sorted_elementos)
+print("Sequência ordenada: ", sorted_elementos)

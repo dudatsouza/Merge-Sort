@@ -7,15 +7,26 @@ p {
 }
 
 p1 {
-    font-size: 12px;
+    font-size: 15px;
+}
+
+#space {
+    margin-top: 130px;
 }
 
 #chartDiv {
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 800px;
-    margin-left: 520px;
-    margin-top: 20px;
+    margin-top: 50px;
+    width: 100%; /* Definir a largura como 100% */
+}
+
+#chart {
+    width: 800px; /* Definir a largura do canvas */
+    max-width: 100%; /* Garantir que o canvas não ultrapasse a largura do contêiner */
+    height: auto; /* Ajustar a altura automaticamente */
+    margin: 0 auto; /* Centralizar o canvas */
 }
 
 footer {

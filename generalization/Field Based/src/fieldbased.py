@@ -42,7 +42,13 @@ arr = [
     Elemento('Edward', 28)
 ]
 key = 'idade'  # Campo pelo qual queremos ordenar
+print("Chave escolhida para ordenação: ", key)
+print("Dados a serem ordenados: ") 
+for elemento in arr:
+    print(elemento)
+print("\nOrdenando...\n")
 sorted_arr = merge_sort(arr, key)
 
+print("Dados ordenados:")
 for elemento in sorted_arr:
     print(elemento)
