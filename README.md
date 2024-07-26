@@ -15,6 +15,8 @@
 
 ## Métodos de Ordenação
 
+## Merge Sort
+
 ## Artigo Científico
 
 ## Apresentação de Slides
