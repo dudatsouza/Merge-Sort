@@ -1,0 +1,17 @@
+linguagem1,linguagem2,mediaPorcentagem
+C,Rust,117.17
+C,Python,-89.09
+C++,Rust,232.79
+C++,Python,-83.55
+C++,C,53.40
+C#,Rust,69246.80
+C#,Python,4712.95
+C#,Java,578.07
+Rust,Python,-94.53
+Java,Rust,3799.64
+Java,Python,141.31
+JavaScript,Rust,2054.40
+JavaScript,Python,17.84
+JavaScript,Java,-18.38
+PHP,Rust,1004.03
+PHP,Python,-47.44

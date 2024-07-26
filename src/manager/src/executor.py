@@ -128,7 +128,7 @@ def main():
     inicio = time.time()
     for file in files:
         arq = "../../../datasets/inputs/" + file
-        for n in [10, 100, 1000, 10000, 100000, 1000000]:
+        for n in [100, 1000, 10000, 100000, 500000, 1000000]:
             print("\n-------------------------")
             print(f"- ARQUIVO {file} com {n} NÚMEROS...")
             for i in range(10):
