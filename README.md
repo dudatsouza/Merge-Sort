@@ -13,6 +13,7 @@
   <img align="center" height="20px" width="60px" src="https://img.shields.io/badge/Python-3670A0?logo=python&logoColor=ffdd54"/>
 </div>
 
+## Métodos de Ordenação
 
 ## Artigo Científico
 
