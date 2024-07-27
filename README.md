@@ -81,15 +81,13 @@ Merge(A, p, q, r)
     EndFor
 ```
 ## Artigo Científico
-
-## Apresentação de Slides
-
+No trabalho foi realizado um artigo contendo informações mais técnicas e precisas sobre o Merge Sort. Sendo dívidido em Introdução, Metodologia, Modelos de Aplicação e Generalizações, Resultados e Discussões, e a Conclusão. Dessa forma, relatando as informações mais importantes e análises sobre o Merge Sort.
 
 ## Implementações 
-
+Para a realização do trabalho foram realizadas implementações em diferentes linguagens de programação. Isto posto, foi implementado o Merge Sort em quatro linguagens compiladas e quatro linguagens interpretadas, sendo essas compiladas C, C++, C# e Rust. Já as Interpetadas Java, JavaScript, PHP e Python. 
 
 ## Considerações Finais
-
+O trabalho aborda abrangentemente o Merge Sort, discutindo complexidade de tempo e espaço, modelos de aplicação, generalizações, vantagens e desvantagens. Além de informações sobre as linguagengens de programação abordadas, com os resultados obtidos e comparações de desempenho.  
 
 
 ## Compilação e Execução 
