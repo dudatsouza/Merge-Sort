@@ -26,5 +26,5 @@ int main() {
     run(n, arqE, arqS);
 
     printf("\nExecução em C finalizada\n");
-    return EXIT_SUCCESS;
+    return;
 }

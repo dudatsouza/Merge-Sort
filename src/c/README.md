@@ -75,6 +75,26 @@ Para compilar e executar o programa através do script executável, siga os pass
 3. O programa será executado e o gráfico de desempenho será gerado.
 <p align="right"><a href="#-implementação-em-c">⬆️ Voltar para ao Início</a></p>
 
+## 📊 Implementação
+Foi implementado o algoritmo Merge Sort de acordo com o pseudocódigo que está no [README.md](../../README.md) principal. Foram feitas algumas modificações para que o algoritmo pudesse ser executado em C. Veja abaixo algumas informações sobre a implementação:
+
+- **Bibliotecas**: Foram utilizadas as bibliotecas `stdio.h`, para entrada e saída de dados, `stdlib.h`, para alocação de memória, `string.h`, para manipulação de strings e `time.h`, para medir o tempo de execução do algoritmo.
+
+- **Funções**:
+    - `merge(int *v, int inicio, int meio, int fim)`: Função que realiza a junção dos subvetores ordenados.
+    - `mergeSort(int *v, int inicio, int fim)`: Função que divide o vetor em subvetores e os ordena.
+    - `definirArray(int n, int *v, char *nome)`: Função que define o array de entrada.
+    - `salvarTempo(int n, double time_taken, char *nome, char *nome2)`: Função que salva o tempo de execução do algoritmo.
+    - `run(int n, char *nome, char *nome2)`: Função que executa o algoritmo e salva o tempo de execução.
+
+- **Entrada**: O programa exige que entre com 3 valores: o tamanho do vetor, o nome do arquivo de entrada e o nome do arquivo de saída. O arquivo de entrada deve estar no formato `.txt` e deve conter os valores do vetor separados por espaço, o arquivo de saída será um arquivo `.csv` que conterá o tempo de execução do algoritmo e o tamanho do vetor, que será até qual posição o vetor será ordenado.
+
+- **Saída**: O programa apenas guarda o tempo de execução do algoritmo em um arquivo `.csv` em `../../datasets/outputs/output.csv`. Além de exibir o tempo de execução no terminal. Depois é gerado alguns gráficos de desempenho.
+
+## 📈 Resultados
+Os resultados do desempenho do algoritmo da linguagem C, foram discutidos no artigo do projeto. Para mais informações, acesse o nosso [artigo](../../artigo/Artigo.pdf) ou o [README.md](../../README.md) principal.
+<p align="right"><a href="#-implementação-em-c">⬆️ Voltar para ao Início</a></p>
+
 ## ⛏ Makefile
 
 O Makefile é um utilitário que automatiza o processo de compilação e execução de programas. Aqui estão os principais comandos do Makefile para este projeto:
@@ -91,7 +111,7 @@ A seguir estão os detalhes do ambiente de compilação onde o programa foi exec
 
 | Componente      | Detalhes                          |
 |-----------------|-----------------------------------|
-| Sistema Operacional | Ununtu 24.04 LTS|
+| Sistema Operacional | Ubuntu 24.04 LTS|
 | Modelo do hardware| Dell Inspiron 13 5330|
 | Processador     | Intel Core i7-1360P Processor (18MB Cache, up to 5.00 GHz)|
 | Memória RAM     | 16GB 4800MHz LPDDR5 Memory Onboard|

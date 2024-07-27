@@ -76,6 +76,26 @@ Para compilar e executar o programa através do script executável, siga os pass
 3. O programa será executado e o gráfico de desempenho será gerado.
 <p align="right"><a href="#-implementação-em-java">⬆️ Voltar para ao Início</a></p>
 
+## 📊 Implementação
+Foi implementado o algoritmo Merge Sort de acordo com o pseudocódigo que está no [README.md](../../README.md) principal. Foram feitas algumas modificações para que o algoritmo pudesse ser executado em Java. Veja abaixo algumas informações sobre a implementação:
+
+- **Bibliotecas**: Foram utilizadas as bibliotecas `java.io.*` e `java.util.*` para manipulação de arquivos e estruturas de dados, respectivamente.
+
+- **Funções**: A implementação em C# foi feita utilizando orientação a objetos. Tendo as seguintes funções: 
+    - `Merge`: Função que faz a junção dos vetores ordenados.
+    - `MergeSort`: Função que faz a divisão do vetor em subvetores.
+    - `DefinirArray`: Função que define o vetor a ser ordenado.
+    - `SalvarTempo`: Função que salva o tempo de execução do algoritmo em um arquivo `.csv`.
+    - `Run`: Função que executa o algoritmo.
+
+- **Entrada**: O programa exige que entre com 3 valores: o tamanho do vetor, o nome do arquivo de entrada e o nome do arquivo de saída. O arquivo de entrada deve estar no formato `.txt` e deve conter os valores do vetor separados por espaço, o arquivo de saída será um arquivo `.csv` que conterá o tempo de execução do algoritmo e o tamanho do vetor, que será até qual posição o vetor será ordenado.
+
+- **Saída**: O programa apenas guarda o tempo de execução do algoritmo em um arquivo `.csv` em `../../datasets/outputs/output.csv`. Além de exibir o tempo de execução no terminal. Depois é gerado alguns gráficos de desempenho.
+
+## 📈 Resultados
+Os resultados do desempenho do algoritmo da linguagem Java, foram discutidos no artigo do projeto. Para mais informações, acesse o nosso [artigo](../../artigo/Artigo.pdf) ou o [README.md](../../README.md) principal.
+<p align="right"><a href="#-implementação-em-java">⬆️ Voltar para ao Início</a></p>
+
 ## ⛏ Javac
 
 O `javac` é um compilador de código-fonte Java que pega seu código-fonte Java e o transforma em bytecode Java, que é executado na JVM (Java Virtual Machine). O `javac` é parte do JDK (Java Development Kit), que é necessário para desenvolver aplicativos Java e executar programas Java.
@@ -91,7 +111,7 @@ A seguir estão os detalhes do ambiente de compilação onde o programa foi exec
 
 | Componente      | Detalhes                          |
 |-----------------|-----------------------------------|
-| Sistema Operacional | Ununtu 24.04 LTS|
+| Sistema Operacional | Ubuntu 24.04 LTS|
 | Modelo do hardware| Dell Inspiron 13 5330|
 | Processador     | Intel Core i7-1360P Processor (18MB Cache, up to 5.00 GHz)|
 | Memória RAM     | 16GB 4800MHz LPDDR5 Memory Onboard|

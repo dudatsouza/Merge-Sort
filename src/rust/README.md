@@ -84,6 +84,28 @@ Para compilar e executar o programa através do script executável, siga os pass
 
 <p align="right"><a href="#-implementação-em-rust">⬆️ Voltar para ao Início</a></p>
 
+## 📊 Implementação
+Foi implementado o algoritmo Merge Sort de acordo com o pseudocódigo que está no [README.md](../../README.md) principal. Foram feitas algumas modificações para que o algoritmo pudesse ser executado em Rust. Veja abaixo algumas informações sobre a implementação:
+
+- **Bibliotecas**: Foram utilizadas as bibliotecas `std::io`, para entrada e saída de dados, `std::fs`, para manipulação de arquivos, `std::time`, para calcular o tempo de execução do algoritmo.
+
+merge
+- **Funções**:
+    - `merge(int *v, int inicio, int meio, int fim)`: Função que realiza a junção dos subvetores ordenados.
+    - `merge_sort_helper(&mut self, v: &mut [i32], inicio: usize, fim: usize)`: Função auxiliar que divide o vetor em subvetores.
+    - `definir_array(&mut self, n: usize)`: Função que define o array de entrada.
+    - `salvar_tempo(&self, n: usize, time_taken: f64)`: Função que salva o tempo de execução do algoritmo em um arquivo `.csv`.
+    - `run(&mut self, n: usize)`: Função que executa o algoritmo.
+
+- **Entrada**: O programa exige que entre com 3 valores: o tamanho do vetor, o nome do arquivo de entrada e o nome do arquivo de saída. O arquivo de entrada deve estar no formato `.txt` e deve conter os valores do vetor separados por espaço, o arquivo de saída será um arquivo `.csv` que conterá o tempo de execução do algoritmo e o tamanho do vetor, que será até qual posição o vetor será ordenado.
+
+- **Saída**: O programa apenas guarda o tempo de execução do algoritmo em um arquivo `.csv` em `../../datasets/outputs/output.csv`. Além de exibir o tempo de execução no terminal. Depois é gerado alguns gráficos de desempenho.
+
+## 📈 Resultados
+Os resultados do desempenho do algoritmo da linguagem Rust, foram discutidos no artigo do projeto. Para mais informações, acesse o nosso [artigo](../../artigo/Artigo.pdf) ou o [README.md](../../README.md) principal.
+<p align="right"><a href="#-implementação-em-rust">⬆️ Voltar para ao Início</a></p>
+
+
 ## ⛏ Rust
 O Rust é uma linguagem de programação de sistemas que é focada em segurança, velocidade e concorrência. Ela é extremamente rápida e eficiente, com um sistema de tipos que ajuda a evitar bugs de concorrência. O Rust é uma linguagem de programação de sistemas que é focada em segurança, velocidade e concorrência. Ela é extremamente rápida e eficiente, com um sistema de tipos que ajuda a evitar bugs de concorrência.
 
@@ -94,7 +116,7 @@ A seguir estão os detalhes do ambiente de compilação onde o programa foi exec
 
 | Componente      | Detalhes                          |
 |-----------------|-----------------------------------|
-| Sistema Operacional | Ununtu 24.04 LTS|
+| Sistema Operacional | Ubuntu 24.04 LTS|
 | Modelo do hardware| Dell Inspiron 13 5330|
 | Processador     | Intel Core i7-1360P Processor (18MB Cache, up to 5.00 GHz)|
 | Memória RAM     | 16GB 4800MHz LPDDR5 Memory Onboard|

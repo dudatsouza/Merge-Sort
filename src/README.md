@@ -19,8 +19,9 @@ Este diretório contém as implementações do algoritmo Merge Sort em várias l
 
 Veja abaixo a estrutura de pastas e arquivos deste diretório:
 - `c/`: Implementação em C.
-- `csharp/`: Implementação em C#.
 - `cpp/`: Implementação em C++.
+- `csharp/`: Implementação em C#.
+- `rust/`: Implementação em Rust.
 - `java/`: Implementação em Java.
 - `javascript/`: Implementação em JavaScript.
 - `php/`: Implementação em PHP.
@@ -90,6 +91,7 @@ Veja abaixo a estrutura de pastas e arquivos deste diretório:
     │   │   ├── src/
     │   │   │   ├── inputs.py
     │   │   │   ├── executor.py
+    │   │   │   ├── pegarMediasPorcentagem.py
     │   │   │   └── main.py
     |   |   └── README.md
     |   |
@@ -132,12 +134,13 @@ git clone https://github.com/dudatsouza/Merge-Sort.git
 > Caso você não queira utilizar o script, siga as instruções contidas no README de cada subdiretório para compilar e executar o código manualmente.
 <p align="right"><a href="#-diretório-src">⬆️ Voltar para ao Início</a></p>
 
+
 ## 🔧 Ambiente de Compilação
 A seguir estão os detalhes do ambiente de compilação onde o programa foi executado:
 
 | Componente      | Detalhes                          |
 |-----------------|-----------------------------------|
-| Sistema Operacional | Ununtu 24.04 LTS |
+| Sistema Operacional | Ubuntu 24.04 LTS |
 | Modelo do hardware| Dell Inspiron 13 5330|
 | Processador     | Intel Core i7-1360P Processor (18MB Cache, up to 5.00 GHz)|
 | Memória RAM     | 16GB 4800MHz LPDDR5 Memory Onboard|

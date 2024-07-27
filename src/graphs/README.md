@@ -11,9 +11,10 @@
 Esta pasta contém os scripts necessários para gerar gráficos de desempenho dos algoritmos de ordenação. Para entender melhor sobre este projeto, leia o [README.md](../../README.md) principal.
 
 ## 🗂 Arquivos
-
-- `src/plot.py`: Script para plotar gráficos.
-- `src/plot_utils.py`: Funções utilitárias para plotagem.
+- `src/plot_by_input.py`: Script para gerar gráficos de desempenho dos algoritmos por arquivo de entrada.
+- `src/plot_by_input_type.py`: Script para gerar gráficos de desempenho dos algoritmos por tipo de entrada, comparando as linguagens compiladas e interpretadas.
+- `src/plot_by_language.py`: Script para gerar gráficos de desempenho dos algoritmos por linguagem de programação.
+- `src/plot_by_language_type.py`: Script para gerar gráficos de desempenho dos algoritmos por tipo de linguagem, comparando as linguagens compiladas e interpretadas.
 
 ## 📚 Como Usar
 Antes de executar é necessário clonar o repositório. Para isso, siga os passos abaixo:
@@ -72,8 +73,10 @@ Para compilar e executar o programa através do script executável, siga os pass
 ## 📊 Gráficos
 
 Os gráficos de desempenho dos algoritmos de ordenação são gerados e será abera uma janela no seu navegador com os gráficos. Além disso, os gráficos são salvos no diretório `datasets/graphs/`. Serão gerados dois tipos de gráficos:
-1. **Por Entrada:** Gráfico de desempenho dos algoritmos para cada entrada. Estarão na pasta `datasets/graphs/by_input/`.
-2. **Por Algoritmo:** Gráfico de desempenho dos algoritmos para cada algoritmo. Estarão na pasta `datasets/graphs/by_algorithm/`.
+1. **Por Entrada:** Gráfico de desempenho dos algoritmos para cada arquivo de entrada. Estarão na pasta `datasets/graphs/by_input/`.
+2. **Por Entrada e Tipo de Linguagem:** Gráfico de desempenho dos algoritmos para cada arquivo de entrada e tipo de linguagem, sendo compilada ou interpretada. Estarão na pasta `datasets/graphs/by_input_type/`.
+3. **Por Linguagem:** Gráfico de desempenho dos algoritmos para cada linguagem de programação. Estarão na pasta `datasets/graphs/by_language/`.
+4. **Por Linguagem e Tipo de Linguagem:** Gráfico de desempenho dos algoritmos para cada linguagem de programação e tipo de linguagem, sendo compilada ou interpretada. Estarão na pasta `datasets/graphs/by_language_type/`.
 <p align="right"><a href="#-geração-de-gráficos">⬆️ Voltar para ao Início</a></p>
 
 ## 🔧 Ambiente de Compilação
@@ -81,7 +84,7 @@ A seguir estão os detalhes do ambiente de compilação onde o programa foi exec
 
 | Componente      | Detalhes                          |
 |-----------------|-----------------------------------|
-| Sistema Operacional | Ununtu 24.04 LTS|
+| Sistema Operacional | Ubuntu 24.04 LTS|
 | Modelo do hardware| Dell Inspiron 13 5330|
 | Processador     | Intel Core i7-1360P Processor (18MB Cache, up to 5.00 GHz)|
 | Memória RAM     | 16GB 4800MHz LPDDR5 Memory Onboard|

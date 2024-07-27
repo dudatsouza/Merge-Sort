@@ -14,6 +14,7 @@ Esta pasta contém os scripts necessários para gerenciar a execução dos algor
 - `src/inputs.py`: Script para gerenciar as entradas dos algoritmos.
 - `src/executor.py`: Script para executar os algoritmos.
 - `src/main.py`: Ponto de entrada do gerenciador.
+- `src/pegarMediasPorcentagem.py`: Script para pegar as médias das porcentagens de desepempenho comparando os algoritmos.
 
 ## 📚 Como Usar
 Antes de executar é necessário clonar o repositório. Para isso, siga os passos abaixo:
@@ -42,11 +43,12 @@ Para compilar e executar o programa através do gerenciador, siga os passos abai
 3. O programa será executado e os gráficos de desempenho serão gerados.
 <p align="right"><a href="#-gerenciador-de-execução">⬆️ Voltar para ao Início</a></p>
 
-## 📊 Gráficos
-
+## 📊 Gráficos 
 Os gráficos de desempenho dos algoritmos de ordenação são gerados e será abera uma janela no seu navegador com os gráficos. Além disso, os gráficos são salvos no diretório `datasets/graphs/`. Serão gerados dois tipos de gráficos:
-1. **Por Entrada:** Gráfico de desempenho dos algoritmos para cada entrada. Estarão na pasta `datasets/graphs/by_input/`.
-2. **Por Algoritmo:** Gráfico de desempenho dos algoritmos para cada algoritmo. Estarão na pasta `datasets/graphs/by_algorithm/`.
+1. **Por Entrada:** Gráfico de desempenho dos algoritmos para cada arquivo de entrada. Estarão na pasta `datasets/graphs/by_input/`.
+2. **Por Entrada e Tipo de Linguagem:** Gráfico de desempenho dos algoritmos para cada arquivo de entrada e tipo de linguagem, sendo compilada ou interpretada. Estarão na pasta `datasets/graphs/by_input_type/`.
+3. **Por Linguagem:** Gráfico de desempenho dos algoritmos para cada linguagem de programação. Estarão na pasta `datasets/graphs/by_language/`.
+4. **Por Linguagem e Tipo de Linguagem:** Gráfico de desempenho dos algoritmos para cada linguagem de programação e tipo de linguagem, sendo compilada ou interpretada. Estarão na pasta `datasets/graphs/by_language_type/`.
 <p align="right"><a href="#-gerenciador-de-execução">⬆️ Voltar para ao Início</a></p>
 
 ## 🔧 Ambiente de Compilação
@@ -54,7 +56,7 @@ A seguir estão os detalhes do ambiente de compilação onde o programa foi exec
 
 | Componente      | Detalhes                          |
 |-----------------|-----------------------------------|
-| Sistema Operacional | Ununtu 24.04 LTS |
+| Sistema Operacional | Ubuntu 24.04 LTS |
 | Modelo do hardware| Dell Inspiron 13 5330|
 | Processador     | Intel Core i7-1360P Processor (18MB Cache, up to 5.00 GHz)|
 | Memória RAM     | 16GB 4800MHz LPDDR5 Memory Onboard|
