@@ -15,6 +15,23 @@
 
 ## Métodos de Ordenação
 Métodos de ordenação são algoritmos usados para organizar uma sequência de elementos em uma determinada ordem, geralmente crescente ou decrescente. Esses algoritmos são fundamentais em ciência da computação, pois muitas operações em dados requerem que eles estejam ordenados. 
+<br/>**Principais Métodos de Ordenação**
+1. Bubble Sort (Ordenação por Bolha)
+2. Selection Sort (Ordenação por Seleção)
+3. Insertion Sort (Ordenação por Inserção)
+4. Merge Sort (Ordenação por Intercalação)
+5. Quick Sort (Ordenação Rápida)
+6. Heap Sort (Ordenação por Heap)
+
+<br/>**Importância da Ordenação**
+
+1. Eficiência na Pesquisa: Dados ordenados permitem a utilização de algoritmos de busca mais eficientes, como a busca binária, que têm uma complexidade O(log n).
+2. Melhoria na Usabilidade: Listas ordenadas são mais fáceis de entender e utilizar, seja para usuários finais ou para outros sistemas que utilizam esses dados.
+3. Preparação para Outros Algoritmos: Muitos algoritmos dependem de dados ordenados para funcionarem corretamente ou de maneira mais eficiente, como algoritmos de merge em estruturas de dados e algoritmos de compressão.
+4. Agrupamento e Análise: Facilita a detecção de padrões e a realização de análises estatísticas, como a identificação de medianas, percentis, e outras métricas importantes.
+<br/>
+Assim nota-se que os métodos de ordenação são essenciais para a organização e a eficiência no processamento de dados. Escolher o algoritmo de ordenação adequado para cada situação pode impactar significativamente o desempenho de um sistema, sendo uma decisão crítica no desenvolvimento de software.
+
 ## Merge Sort
 O Merge Sort é um algoritmo de ordenação que consiste em dividir uma estrutura em subconjuntos e aplicar a ordenação nos elementos extraídos da estrutura original. Após a ordenação desses subconjuntos, é feita a mistura (merge) em um conjunto final ordenado. Podemos dizer literalmente que ele se utiliza daquela boa e velha frase que conhecemos: "Dividir e conquistar".
 O que ocorre é o desmembramento do problema em vários subproblemas que são semelhantes ao problema original, mas de menor tamanho, resolvendo esses subproblemas recursivamente e, em seguida, combinando as soluções para criar uma solução para o problema original. Dessa forma ele opera, nos passos principais:
@@ -24,7 +41,45 @@ O que ocorre é o desmembramento do problema em vários subproblemas que são se
 
 3. **Combinação (Merge)**: Os subarrays ordenados são mesclados para formar subarrays maiores, garantindo que os elementos mesclados estejam em ordem.
 
+A recursão é "finalizada" quando a sequência a ser ordenada atinge o comprimento 1, uma vez que, nessa situação, não há trabalho a ser realizado, uma vez que qualquer sequência com comprimento 1 já se encontra ordenada. 
+<br/>
+Para entender melhor o funcionamento do Merge Sort, é importante analisar as duas funções principais que compõem o algoritmo: Merge e MergeSort. 
 
+A operação chave do algoritmo de ordenação é a intercalação de duas sequências ordenadas no passo de ``combinação''. Para realizar a intercalação, utilizamos um procedimento auxiliar chamado Merge(A, p, q, r, onde 'A' é o array, 'p' é o índice do primeiro elemento do primeiro subarray, 'q' é o índice do último elemento do primeiro subarray e 'r' é o índice do último elemento do segundo subarray, tais que p ≤ q < r. 
+
+Esse procedimento assume que $A[p..q]$ (subarray esquerdo) e $A[q+1..r]$ (subarray direito) estão ordenados. Ele os mescla para formar um único subarray ordenado que substitui o subarray original $A[p..r]$. O procedimento \texttt{Merge} leva tempo $O(n)$ para mesclar dois subarrays de tamanho $n/2$ cada, onde $n = r - p + 1$ é o número total de elementos a serem mesclados. Em termos computacionais, cada passo básico do procedimento demanda um tempo constante, pois estamos comparando apenas os elementos superiores dos dois subarrays. 
+<br/>
+**Pseudocódigo:**
+```text
+Merge(A, p, q, r)
+    n1 = q - p + 1
+    n2 = r - q
+    Create arrays L[1..n1 + 1] and R[1..n2 + 1]
+    
+    For i = 1 to n1 do
+        L[i] = A[p + i - 1]
+    EndFor
+
+    For j = 1 to n2 do
+        R[j] = A[q + j]
+    EndFor
+
+    L[n1 + 1] = ∞
+    R[n2 + 1] = ∞
+
+    i = 1
+    j = 1
+
+    For k = p to r do
+        If L[i] ≤ R[j] then
+            A[k] = L[i]
+            i = i + 1
+        Else
+            A[k] = R[j]
+            j = j + 1
+        EndIf
+    EndFor
+```
 ## Artigo Científico
 
 ## Apresentação de Slides
