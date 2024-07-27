@@ -13,6 +13,17 @@
   <img align="center" height="20px" width="60px" src="https://img.shields.io/badge/Python-3670A0?logo=python&logoColor=ffdd54"/>
 </div>
 
+## Métodos de Ordenação
+Métodos de ordenação são algoritmos usados para organizar uma sequência de elementos em uma determinada ordem, geralmente crescente ou decrescente. Esses algoritmos são fundamentais em ciência da computação, pois muitas operações em dados requerem que eles estejam ordenados. 
+## Merge Sort
+O Merge Sort é um algoritmo de ordenação que consiste em dividir uma estrutura em subconjuntos e aplicar a ordenação nos elementos extraídos da estrutura original. Após a ordenação desses subconjuntos, é feita a mistura (merge) em um conjunto final ordenado. Podemos dizer literalmente que ele se utiliza daquela boa e velha frase que conhecemos: "Dividir e conquistar".
+O que ocorre é o desmembramento do problema em vários subproblemas que são semelhantes ao problema original, mas de menor tamanho, resolvendo esses subproblemas recursivamente e, em seguida, combinando as soluções para criar uma solução para o problema original. Dessa forma ele opera, nos passos principais:
+1. **Divisão**: O array original é dividido recursivamente em subarrays menores até que cada subarray contenha apenas um elemento. Isso é feito dividindo repetidamente o array ao meio.
+
+2. **Conquista**: Os subarrays são ordenados recursivamente.
+
+3. **Combinação (Merge)**: Os subarrays ordenados são mesclados para formar subarrays maiores, garantindo que os elementos mesclados estejam em ordem.
+
 
 ## Artigo Científico
 
