@@ -3,8 +3,8 @@ const app = Vue.createApp({
         return {
             btnIsDisabled: false,
             msgDone: '',
-            arraySize: 10,
-            numExecutions: 5,
+            arraySize: 20,
+            numExecutions: 10,
             dice: [],
             keyNumber: 0,
             buttonText: 'Merge Sort',
@@ -137,7 +137,7 @@ const app = Vue.createApp({
         },
         plotGraph(sizes, times) {
             const ctx = document.getElementById('chart').getContext('2d');
-            const nLogN = sizes.map(n => 15 * n * Math.log(n));
+            const nLogN = sizes.map(n => 31 * n * Math.log(n));
             new Chart(ctx, {
                 type: 'line',
                 data: {
